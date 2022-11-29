@@ -21,7 +21,21 @@ export const dataSlice = createSlice({
       const filteredData = DataCopy.filter((e) => e.id !== action.payload);
       state.employee = [...filteredData];
     },
+    // search bar handling
+    search(state, action) {
+      const DataCopy = JSON.parse(JSON.stringify(state.employee));
+      let data;
+      if (action.payload === "") {
+        state.employee = [...DataCopy];
+      } else {
+        data = DataCopy.filter((e) => {
+          return e.employeeName
+            .toLowerCase()
+            .includes(action.payload.toLowerCase());
+        });
+        state.employee = [...data];
+      }
+    },
   },
 });
-export const { getFormData, exportEmployeData, removeEmployee } =
-  dataSlice.actions;
+export const { getFormData, search, removeEmployee } = dataSlice.actions;

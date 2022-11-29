@@ -13,7 +13,7 @@ const EmployeeList = () => {
   const emps = useSelector((state) => state.employeData.employee);
 
 
-    console.log(emps)
+    // console.log(emps)
     const deleteEmployee = (id) => {
       // let newEmp = empData.filter(e => e.id !== id)
     dispatch(removeEmployee(id));
