@@ -1,0 +1,19 @@
+:root{
+  --main-color:#23AAEB
+}
+.main-color{
+  color: #23AAEB;
+}
+.bg-main{
+  background-color: #23AAEB;
+}
+.bg-danger{
+  background-color: #FF6A6A;
+}
+
+.container {
+  width: 85% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 85% !important;
+}

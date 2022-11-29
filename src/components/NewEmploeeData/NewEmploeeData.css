@@ -1,0 +1,42 @@
+.form-title{
+    /* color: var(--main-color); */
+    font-size: 18px;
+    
+    margin-bottom: 10px; 
+    padding: 10.5px 0;
+    border-bottom: 1px var(--main-color) solid;
+}
+.after-title::after{
+    content: '';
+    width: 44px;
+    height: 4px;
+    border-radius: 3px;
+  background-color: rgba(35, 170, 235, 0.14);
+  position: absolute;
+  top: 24px;
+  left: 0;
+}
+.image-container{
+    padding: 52px;
+    border-color: #737373;
+}
+.image-container p{
+  width: 138px;
+  line-height: 1rem;
+  letter-spacing: 1.73px;
+  font-size: 13px;
+}
+.personal-info-input{
+    width: 403px;
+    margin: 0 23.8px 15px 13px;
+}
+.office-select{
+    width: 1099px;
+    margin-bottom: 15px;
+}
+.input-select{
+    width: 533px;
+    margin-bottom: 15px;
+
+}
+

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body > div:nth-child(3) > div > div{
+  border-radius: 0;
+  max-width: 1174px !important;
+  width: 1174px !important;
+}
+body > div:nth-child(3) > div > div > div{
+  width: 1174px !important;
+  border-radius: 0;
+}
+
