@@ -6,7 +6,7 @@ const EmployeeList = () => {
     const TotalEmployess = useSelector((state) => state.employeData.employee);
 console.log(TotalEmployess)
   return (
-    <section className="container mx-auto">
+    <section className=" px-3 mx-auto grid 2xl:grid-cols-4 lg:grid-cols-2 gap-x-4 h-fit gap-y-9">
     {TotalEmployess.map((e) => (
         <EmployeeCard employee={e} key={e.id} />
       ))}

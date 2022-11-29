@@ -16,10 +16,16 @@
 .bg-danger{
   background-color: #FF6A6A;
 }
+.sidebar-active{
+  background-color: #2765AC;
+  border-left: solid #27B40C 4px;
+}
+
 
 .container {
-  width: 85% !important;
+  padding: 0 35px;
+  /* width: 85% !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  max-width: 85% !important;
+  max-width: 85% !important; */
 }

@@ -2,10 +2,10 @@
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
 }
 .card-img {
-  width: 104.5px;
+  padding-right: 21.5px;
 }
 .card-content {
-  width: 296.5px;
+  /* width: 296.5px; */
 }
 .card-name{
     margin-bottom: 3px;
