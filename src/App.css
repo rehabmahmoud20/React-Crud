@@ -7,6 +7,12 @@
 .bg-main{
   background-color: #23AAEB;
 }
+.muted{
+  color:#8997A4;
+}
+.bg-muted{
+  background-color: #8997A4;
+}
 .bg-danger{
   background-color: #FF6A6A;
 }

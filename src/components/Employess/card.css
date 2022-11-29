@@ -1,6 +1,35 @@
-.card-img{
-    width: 104.5px;
+.card{
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
+}
+.card-img {
+  width: 104.5px;
+}
+.card-content {
+  width: 296.5px;
+}
+.card-name{
+    margin-bottom: 3px;
+}
+p{
+    line-height: 1.2;
+}
+.present,.absent,.weekend,.on-leave{
+    font-size: 11px;
+}
+.present {
+  background-color: #dcf3d7;
+  color: #27B40C;
+}
+.absent {
+  background-color: #ffe7e7;
+  color: #FF6A6A;
+}
+.weekend {
+    background-color: #DCE6F2;
+}
+.on-leave {
+    background-color: #ECEEF0;
 }
 .card-content{
-    width: 296.5px;
+    padding-left: 21px;
 }
