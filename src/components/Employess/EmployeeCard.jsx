@@ -1,5 +1,11 @@
 import "./card.css";
 import classNames from "classnames";
+
+import { useSelector, useDispatch } from "react-redux";
+import {removeEmployee} from '../../Redux/DataSlice'
+
+
+// icons
 import { MdModeEdit } from "react-icons/md";
 import { AiOutlinePauseCircle } from "react-icons/ai";
 import { AiFillDelete } from "react-icons/ai";
@@ -9,9 +15,16 @@ import { BiDotsVerticalRounded } from "react-icons/bi";
 
 // BsThreeDotsVertical
 
-const EmployeeCard = ({ employee }) => {
-  const { image, employeeName, position, department, empCase } = employee;
-  console.log(employee);
+const EmployeeCard = ({ employee ,removeEmp}) => {
+  const { image, employeeName, position, department, empCase,id } = employee;
+  const dispatch = useDispatch();
+
+  // console.log(employee);
+
+  // const deleteEmployee = (id) => {
+  //   dispatch(removeEmployee(id));
+  // };
+
   const className = classNames({
     "absent text-center w-14": empCase === "absent",
     "present text-center w-14": empCase === "present",
@@ -25,7 +38,8 @@ const EmployeeCard = ({ employee }) => {
         <div className="img-icons flex mx-auto w-fit">
           <MdModeEdit className="mr-4 text-xs muted hover:cursor-pointer" />
           <AiOutlinePauseCircle className="mr-4 text-xs muted hover:cursor-pointer" />
-          <AiFillDelete className="text-xs muted hover:cursor-pointer" />
+          <AiFillDelete onClick={()=>removeEmp(id)} 
+          className="text-xs muted hover:cursor-pointer" />
         </div>
       </div>
       <div className="card-content capitalize">

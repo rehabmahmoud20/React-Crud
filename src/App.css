@@ -1,9 +1,11 @@
 :root{
-  --main-color:#23AAEB
+  --main-color:#23AAEB;
+  background-color: #F7F8F9;
 }
 .main-color{
   color: #23AAEB;
 }
+
 .bg-main{
   background-color: #23AAEB;
 }
