@@ -3,8 +3,8 @@ import { emloyeeData } from "../data.js";
 const initialState = {
   newEmployeeData: [],
   employee: emloyeeData,
+  searchedDataCopy: emloyeeData,
 };
-console.log(emloyeeData);
 
 // reducer => state + action
 export const dataSlice = createSlice({
@@ -23,18 +23,18 @@ export const dataSlice = createSlice({
     },
     // search bar handling
     search(state, action) {
-      const DataCopy = JSON.parse(JSON.stringify(state.employee));
-      let data;
-      if (action.payload === "") {
-        state.employee = [...DataCopy];
-      } else {
-        data = DataCopy.filter((e) => {
+      const DataCopy = JSON.parse(JSON.stringify(state.searchedDataCopy));
+
+      const data = DataCopy.filter((e) => {
+        if (action.payload === "") {
+          return e;
+        } else {
           return e.employeeName
             .toLowerCase()
             .includes(action.payload.toLowerCase());
-        });
-        state.employee = [...data];
-      }
+        }
+      });
+      state.employee = data;
     },
   },
 });

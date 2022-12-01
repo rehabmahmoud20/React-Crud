@@ -1,20 +1,22 @@
-import logo from "./logo.svg";
 import "./App.css";
-import NewEmploee from "./components/NewEmploeeData/NewEmploee";
 import EmployeeList from "./components/Employess/EmployeeList";
 import Sidebar from "./components/shared/Sidebar";
 import Search from "./components/search/Search";
+import NavbarComponent from "./components/shared/NavbarComponent";
 
 function App() {
   return (
-    <main className="flex">
+    <section className="flex ">
+      <div >
       <Sidebar />
-      <div>
+
+      </div>
+      <div className="mx-auto h-screen overflow-auto w-11/12">
+        <NavbarComponent/>
         <Search />
         <EmployeeList />
       </div>
-      {/* <NewEmploee/> */}
-    </main>
+    </section>
   );
 }
 

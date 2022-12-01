@@ -2,6 +2,9 @@
   --main-color:#23AAEB;
   background-color: #F7F8F9;
 }
+/* :root > nav > div > div > ul {
+  align-items: center !important;
+} */
 .main-color{
   color: #23AAEB;
 }
@@ -22,12 +25,7 @@
   background-color: #2765AC;
   border-left: solid #27B40C 4px;
 }
-
-
-.container {
-  padding: 0 35px;
-  /* width: 85% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: 85% !important; */
+.sign-in-bg{
+  background-color: #27B40C;
 }
+

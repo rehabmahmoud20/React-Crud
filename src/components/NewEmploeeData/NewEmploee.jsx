@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import "./NewEmploeeData.css";
+
 // modal imports
 import { Modal, Button } from "flowbite-react";
 
 import { useForm } from "react-hook-form";
 
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import {getFormData} from '../../Redux/DataSlice'
 
 
 const NewEmploee = () => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
-//   const globalProducts = useSelector((state) => state.employeData.newEmployeeData);
-// console.log(globalProducts)
 
-
-  
-  // const onClose = (data) => {useDispatch(getFormData(data))};
   const onClick = () => {
     setShowModal(true);
   };
@@ -31,7 +27,8 @@ const NewEmploee = () => {
   return (
     <React.Fragment>
       <div className="flex flex-wrap gap-4">
-        <Button onClick={onClick}>Toggle modal</Button>
+   
+        <Button onClick={onClick} className=' p-0'>+ Add new</Button>
       </div>
       <Modal
         show={showModal}
@@ -45,24 +42,21 @@ const NewEmploee = () => {
 
           <form
             onSubmit={handleSubmit((data) => {
-              // onClose(data)
     dispatch(getFormData(data))
-              console.log(data);
               reset();
             })}
           >
             {/* ============================================ personal info data ====================================================================== */}
-            <div className="personal-info "></div>
             <div className="info-title relative">
               <p className="font-bold main-color after-title  mb-8">
                 Personal Info
               </p>
             </div>
-            <div className=" flex ">
+            <div className="mx-auto lg-flex flex">
               <div className="uppercase border inline-block border-dashed image-container h-fit ">
                 <p className="image-text">drag image here</p>
               </div>
-              <div className="lg:flex lg:flex-wrap lg:row-end-1">
+              <div className="lg:flex lg:flex-wrap lg:row-end-1 ">
                 <div className="personal-info-input">
                   <label
                     htmlFor="name"
@@ -146,7 +140,7 @@ const NewEmploee = () => {
               </div>
               <select
                 id="office"
-                className=" office-select border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                className=" office-select  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                 {...register("office")}
               >
                 <option value="">Name</option>
@@ -292,7 +286,6 @@ const NewEmploee = () => {
               <button
                 type="submit"
                 className=" text-white bg-main  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-1.5 text-center "
-              //  onClick={increaseQantity}
               >
                 Save
               </button>
@@ -307,9 +300,6 @@ const NewEmploee = () => {
             </div>
           </form>
 
-          {/* </div> */}
-
-          {/* </div> */}
         </Modal.Body>
       </Modal>
     </React.Fragment>
