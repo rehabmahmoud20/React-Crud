@@ -1,31 +1,52 @@
 :root{
   --main-color:#23AAEB;
-  background-color: #F7F8F9;
+  --second-color:#2765AC;
+  --third-color:#27B40C;
+  --muted:#8997A4;
 }
-/* :root > nav > div > div > ul {
-  align-items: center !important;
-} */
+body{
+  background-color: #F7F8F9;
+
+}
+
 .main-color{
-  color: #23AAEB;
+  color: var(--main-color);
 }
 
 .bg-main{
-  background-color: #23AAEB;
+  background-color: var(--main-color);
 }
 .muted{
-  color:#8997A4;
+  color:var(--muted);
 }
 .bg-muted{
-  background-color: #8997A4;
+  background-color: var(--muted);
 }
 .bg-danger{
   background-color: #FF6A6A;
 }
-.sidebar-active{
-  background-color: #2765AC;
-  border-left: solid #27B40C 4px;
-}
+
 .sign-in-bg{
-  background-color: #27B40C;
+  background-color: var(--third-color);
 }
+
+body{
+  overflow-y: hidden;
+}
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: white;
+    width: 5px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--muted);
+  }
+
 

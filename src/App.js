@@ -1,6 +1,6 @@
 import "./App.css";
 import EmployeeList from "./components/Employess/EmployeeList";
-import Sidebar from "./components/shared/Sidebar";
+import Sidebar from "./components/shared/sidebar/Sidebar";
 import Search from "./components/search/Search";
 import NavbarComponent from "./components/shared/NavbarComponent";
 
@@ -11,7 +11,7 @@ function App() {
       <Sidebar />
 
       </div>
-      <div className="mx-auto h-screen overflow-auto w-11/12">
+      <div className="mx-auto w-11/12 h-screen overflow-auto">
         <NavbarComponent/>
         <Search />
         <EmployeeList />

@@ -1,0 +1,8 @@
+.sidebar-active{
+    background-color: var(--second-color);
+    border-color:  var(--third-color);
+  }
+.side-item:hover{
+    background-color: #2765AC;
+    border-color:  var(--third-color) ;
+  }

@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import EmployeeCard from "./EmployeeCard";
-
+import EmployeeCard from "./EmployeeCard/EmployeeCard";
 
 import { removeEmployee } from "../../Redux/DataSlice";
 
@@ -13,11 +12,11 @@ const EmployeeList = () => {
     dispatch(removeEmployee(id));
   };
   return (
-    <section className=" px-3  justify-center grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 gap-x-4 h-fit gap-y-9">
+    <main className="   w-full  lg:justify-items-center md:grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2  h-fit gap-y-9  gap-x-4  px-4">
       {emps.map((e) => (
         <EmployeeCard employee={e} key={e.id} removeEmp={deleteEmployee} />
       ))}
-    </section>
+    </main>
   );
 };
 

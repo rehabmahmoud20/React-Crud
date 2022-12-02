@@ -17,15 +17,12 @@ export const dataSlice = createSlice({
     },
     // handle employe removal
     removeEmployee(state, action) {
-      const DataCopy = JSON.parse(JSON.stringify(state.employee));
-      const filteredData = DataCopy.filter((e) => e.id !== action.payload);
-      state.employee = [...filteredData];
+      const filteredData = state.employee.filter((e) => e.id !== action.payload);
+      state.employee = filteredData;
     },
     // search bar handling
     search(state, action) {
-      const DataCopy = JSON.parse(JSON.stringify(state.searchedDataCopy));
-
-      const data = DataCopy.filter((e) => {
+      const data = state.searchedDataCopy.filter((e) => {
         if (action.payload === "") {
           return e;
         } else {

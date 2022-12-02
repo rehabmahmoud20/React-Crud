@@ -11,15 +11,15 @@ const Search = () => {
   };
 
   return (
-    <div className="px-3 flex justify-between mb-12">
-      <form className="w-1/2 md:w-3/4 2xl:w-11/12 mr-2">
+    <div className="px-3 md:flex justify-between mb-12">
+      <form className="w-full mb-2 md:mb-0 md:w-3/4 2xl:w-11/12 ">
         <label
           htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
         >
           Search
         </label>
-        <div className="relative">
+        <div className="relative mr-3">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <FiSearch className="main-color" />
           </div>

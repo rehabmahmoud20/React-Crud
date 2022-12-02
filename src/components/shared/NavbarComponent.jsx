@@ -14,21 +14,21 @@ const NavbarComponent = () => {
       <Navbar.Toggle />
       <Navbar.Collapse className="items-center ">
         <ul className="md:flex items-center md:justify-end block ">
-          <li>
-            <p className=" pr-12">Thursday, 03 Oct 02:08:07 PM</p>
+          <li className="mb-5 md:mb-0 ">
+            <p className=" md:pr-12 text-center md:text-start">Thursday, 03 Oct 02:08:07 PM</p>
           </li>
-          <li>
-            <button className="w-fit mr-6 text-white sign-in-bg  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-6 py-1.5 text-center ">
+          <li className="mb-5 md:mb-0 mx-auto text-center">
+            <button className="mr-6 text-white sign-in-bg  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-fit mx-auto px-5 py-1.5   text-center ">
               sign in
             </button>
           </li>
 
-          <li className="text-2xl border-x-2 px-2  h-fit mr-3 w-fit">
+          <li className="text-2xl border-x-2 px-2  h-fit md:mr-3 w-fit mb-5 md:mb-0 mx-auto ">
             <MdNotifications />
           </li>
-          <li className="flex items-center">
+          <li className="md:flex items-center mb-5 md:mb-0 text-center">
             <img
-              className="w-10 h-10 object-cover rounded-full transition-all duration-500 mr-2"
+              className="w-10 h-10 object-cover rounded-full transition-all duration-500 md:mr-2 mx-auto"
               src={userPhoto}
               alt="profile"
             />

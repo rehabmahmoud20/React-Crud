@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./NewEmploeeData.css";
 
+
 // modal imports
 import { Modal, Button } from "flowbite-react";
 
@@ -11,6 +12,7 @@ import {getFormData} from '../../Redux/DataSlice'
 
 
 const NewEmploee = () => {
+
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -52,11 +54,11 @@ const NewEmploee = () => {
                 Personal Info
               </p>
             </div>
-            <div className="mx-auto lg-flex flex">
-              <div className="uppercase border inline-block border-dashed image-container h-fit ">
+            <div className="xl:flex justify-center">
+              <div className="uppercase border  border-dashed image-container h-fit mb-3 xl:mb-0 w-fit">
                 <p className="image-text">drag image here</p>
               </div>
-              <div className="lg:flex lg:flex-wrap lg:row-end-1 ">
+              <div className="lg:grid lg:grid-cols-2 xl:w-4/5 ">
                 <div className="personal-info-input">
                   <label
                     htmlFor="name"
@@ -129,7 +131,7 @@ const NewEmploee = () => {
               </p>
             </div>
             {/* office */}
-            <div >
+            <div className="xl:pr-14">
               <div className="mb-2 block">
                 <label
                   htmlFor="office"
@@ -140,7 +142,7 @@ const NewEmploee = () => {
               </div>
               <select
                 id="office"
-                className=" office-select  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                className="   border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                 {...register("office")}
               >
                 <option value="">Name</option>
@@ -148,7 +150,7 @@ const NewEmploee = () => {
                 <option value="Sales">Sales</option>
               </select>
             </div>
-            <div className=" md:flex lg:flex-wrap">
+            <div className=" xl:grid xl:grid-cols-2 xl:gap-x-8 xl:pr-14">
               {/* department */}
               <div>
                 <div className="mb-2 block">
@@ -162,7 +164,7 @@ const NewEmploee = () => {
                 <select
                   id="department"
                   required
-                  className=" input-select mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="   mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("department")}
                 >
                   <option value="">Select</option>
@@ -172,7 +174,7 @@ const NewEmploee = () => {
                 </select>
               </div>
               {/* Attendence Profile */}
-              <div>
+              <div className="">
                 <div className="mb-2 block">
                   <label
                     htmlFor="Attendence Profile"
@@ -183,7 +185,7 @@ const NewEmploee = () => {
                 </div>
                 <select
                   id="Attendence Profile"
-                  className=" input-select border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className=" xl:input-select border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("Attendence-Profile")}
                 >
                   <option value="">Select</option>
@@ -204,7 +206,7 @@ const NewEmploee = () => {
                 </div>
                 <select
                   id="Role"
-                  className=" input-select mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className=" xl:input-select mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("Role")}
                 >
                   <option value="">Select</option>
@@ -214,7 +216,7 @@ const NewEmploee = () => {
                 </select>
               </div>
               {/* Position */}
-              <div>
+              <div className="">
                 <div className="mb-2 block">
                   <label
                     htmlFor="Position"
@@ -227,7 +229,7 @@ const NewEmploee = () => {
                 <select
                   id="Position"
                   required
-                  className=" input-select  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className=" xl:input-select  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("Position")}
                 >
                   <option value="">Select</option>
@@ -247,7 +249,7 @@ const NewEmploee = () => {
                 </div>
                 <select
                   id="Direct Manger"
-                  className=" input-select mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className=" xl:input-select mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("Direct-Manger")}
                 >
                   <option value="">Select</option>
@@ -272,7 +274,7 @@ const NewEmploee = () => {
                   type="checkbox"
                   value=""
                   className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-                  required
+                  
                 />
               </div>
               <label
@@ -282,7 +284,7 @@ const NewEmploee = () => {
                 Allow employee to work from home
               </label>
             </div>
-            <div className="flex flex-row-reverse gap-4">
+            <div className="flex flex-row-reverse gap-4 border-t pt-2.5">
               <button
                 type="submit"
                 className=" text-white bg-main  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-1.5 text-center "
