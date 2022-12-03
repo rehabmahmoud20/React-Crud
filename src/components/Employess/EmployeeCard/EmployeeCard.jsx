@@ -19,7 +19,7 @@ const EmployeeCard = ({ employee, removeEmp }) => {
     "on-leave text-center w-14 mb-2 lg:mb-0": empCase === "on leave",
   });
   return (
-    <div className="card mx-auto mb-4 lg-mb-0 lg:flex w-fit py-3 px-1 lg:px-4 h-fit ">
+    <section className="card mx-auto mb-4 lg-mb-0 lg:flex w-fit py-3 px-1 lg:px-4 h-fit ">
       {/* card image */}
       <div className="card-img  lg:border-r">
         <img
@@ -56,7 +56,7 @@ const EmployeeCard = ({ employee, removeEmp }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

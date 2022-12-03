@@ -9,16 +9,16 @@ const ToolTip = ({ employee }) => {
       content={
         <div className="w-fit">
           <div>
-            office :<div>{office}</div>
+            office :{office}
           </div>
           <div>
-          Role :<div>{role}</div>
+          Role :{role}
           </div>
           <div>
-          coppied manger  :<div>{manger}</div>
+          coppied manger  :{manger}
           </div>
           <div>
-          Joinning date :<div>{date}</div>
+          Joinning date :{date}
           </div>
           <div>
           Manger:<div>{manger}</div>

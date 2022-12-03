@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import "./NewEmploeeData.css";
 
+import Previews from "./previews/Previews";
 
 // modal imports
 import { Modal, Button } from "flowbite-react";
 
 import { useForm } from "react-hook-form";
 
-import {  useDispatch } from "react-redux";
-import {getFormData} from '../../Redux/DataSlice'
-
+import { useDispatch } from "react-redux";
+import { getFormData } from "../../Redux/DataSlice";
 
 const NewEmploee = () => {
-
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -29,8 +28,9 @@ const NewEmploee = () => {
   return (
     <React.Fragment>
       <div className="flex flex-wrap gap-4">
-   
-        <Button onClick={onClick} className=' p-0'>+ Add new</Button>
+        <Button onClick={onClick} className=" p-0">
+          + Add new
+        </Button>
       </div>
       <Modal
         show={showModal}
@@ -44,7 +44,7 @@ const NewEmploee = () => {
 
           <form
             onSubmit={handleSubmit((data) => {
-    dispatch(getFormData(data))
+              dispatch(getFormData(data));
               reset();
             })}
           >
@@ -54,11 +54,11 @@ const NewEmploee = () => {
                 Personal Info
               </p>
             </div>
-            <div className="xl:flex justify-center">
-              <div className="uppercase border  border-dashed image-container h-fit mb-3 xl:mb-0 w-fit">
-                <p className="image-text">drag image here</p>
+            <div className="xl:flex justify-center ">
+              <div className="uppercase  border  border-dashed image-container h-fit mb-3 xl:mb-0 w-fit">
+              <Previews />
               </div>
-              <div className="lg:grid lg:grid-cols-2 xl:w-4/5 ">
+              <div className="xl:grid xl:grid-cols-2  xl:w-4/5 ">
                 <div className="personal-info-input">
                   <label
                     htmlFor="name"
@@ -85,7 +85,7 @@ const NewEmploee = () => {
                   <input
                     type="date"
                     id="date"
-                    className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                    className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 pl-6"
                     placeholder="20/03/2020"
                     required
                     {...register("date")}
@@ -274,7 +274,6 @@ const NewEmploee = () => {
                   type="checkbox"
                   value=""
                   className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-                  
                 />
               </div>
               <label
@@ -301,7 +300,6 @@ const NewEmploee = () => {
               </button>
             </div>
           </form>
-
         </Modal.Body>
       </Modal>
     </React.Fragment>

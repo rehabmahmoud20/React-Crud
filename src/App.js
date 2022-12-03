@@ -7,12 +7,11 @@ import NavbarComponent from "./components/shared/NavbarComponent";
 function App() {
   return (
     <section className="flex ">
-      <div >
-      <Sidebar />
-
+      <div>
+        <Sidebar />
       </div>
       <div className="mx-auto w-11/12 h-screen overflow-auto">
-        <NavbarComponent/>
+        <NavbarComponent />
         <Search />
         <EmployeeList />
       </div>
