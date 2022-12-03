@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./NewEmploeeData.css";
 
-import Previews from "./previews/Previews";
+import Previews from "./Previews";
 
 // modal imports
 import { Modal, Button } from "flowbite-react";
@@ -56,6 +56,7 @@ const NewEmploee = () => {
             </div>
             <div className="xl:flex justify-center ">
               <div className="uppercase  border  border-dashed image-container h-fit mb-3 xl:mb-0 w-fit">
+                {/* image drag and drop */}
               <Previews />
               </div>
               <div className="xl:grid xl:grid-cols-2  xl:w-4/5 ">
