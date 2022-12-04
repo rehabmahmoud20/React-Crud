@@ -1,3 +1,4 @@
+import userPhoto from '../../../assets/images/userPhoto.jpg'
 import "./card.css";
 import classNames from "classnames";
 import ToolTip from "./ToolTip";
@@ -8,14 +9,16 @@ import { AiOutlinePauseCircle } from "react-icons/ai";
 import { AiFillDelete } from "react-icons/ai";
 import { BiMessageAlt } from "react-icons/bi";
 import { AiOutlinePhone } from "react-icons/ai";
+import { useState } from 'react';
 
 const EmployeeCard = ({ employee, removeEmp }) => {
-  const { image, employeeName, position, department, empCase, id } = employee;
+  const {  employeeName, position, department, empCase, id } = employee;
+  const [empState,setEmpState] = useState('weekend')
 
   const className = classNames({
     "absent text-center w-14 mb-2 lg:mb-0": empCase === "absent",
     "present text-center w-14 mb-2 lg:mb-0": empCase === "present",
-    "weekend text-center w-14 mb-2 lg:mb-0": empCase === "weekend",
+    "weekend text-center w-14 mb-2 lg:mb-0": empCase === "weekend" || empState === "weekend",
     "on-leave text-center w-14 mb-2 lg:mb-0": empCase === "on leave",
   });
   return (
@@ -24,8 +27,8 @@ const EmployeeCard = ({ employee, removeEmp }) => {
       <div className="card-img  lg:border-r">
         <img
           className="w-16 h-16 rounded-full mb-4 mx-auto"
-          src={image}
-          alt=""
+          src={userPhoto}
+          alt="userPhoto"
         />
         <div className="img-icons flex mx-auto w-fit">
           <MdModeEdit className="mr-4 text-xs muted hover:cursor-pointer" />
@@ -42,7 +45,7 @@ const EmployeeCard = ({ employee, removeEmp }) => {
         <p className="mb-px">{position}</p>
         <p className="mb-2.5 muted">{department}</p>
         <div className="emp-data lg:flex lg:space-x-16">
-          <p className={className}>{empCase}</p>
+          <p className={className}>{empCase || empState}</p>
           <div className="content-icons flex justify-start ">
             <div className="info-icon w-5 h-5 rounded-full bg-muted flex items-center justify-center mr-1.5">
               <BiMessageAlt className=" text-xs hover:cursor-pointer" />

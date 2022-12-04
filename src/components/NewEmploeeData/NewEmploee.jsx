@@ -72,7 +72,7 @@ const NewEmploee = () => {
                     id="name"
                     className="  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
                     required
-                    {...register("name")}
+                    {...register("employeeName")}
                   />
                 </div>
 
@@ -171,7 +171,7 @@ const NewEmploee = () => {
                   <option value="">Select</option>
 
                   <option value="Marketting">Marketting</option>
-                  <option value="Sales">Sales</option>
+                  <option value="Sales">business</option>
                 </select>
               </div>
               {/* Attendence Profile */}
@@ -231,11 +231,11 @@ const NewEmploee = () => {
                   id="Position"
                   required
                   className=" xl:input-select  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                  {...register("Position")}
+                  {...register("position")}
                 >
                   <option value="">Select</option>
                   <option value="Marketting">Marketting</option>
-                  <option value="Sales">Sales</option>
+                  <option value="Sales">hr department</option>
                 </select>
               </div>
               {/* Direct Manger */}

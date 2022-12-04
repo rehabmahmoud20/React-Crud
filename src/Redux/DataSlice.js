@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { emloyeeData } from "../data.js";
 const initialState = {
-  newEmployeeData: [],
   employee: emloyeeData,
   searchedDataCopy: emloyeeData,
 };
@@ -13,7 +12,7 @@ export const dataSlice = createSlice({
   reducers: {
     // add new employee
     getFormData(state, action) {
-      state.newEmployeeData.push(action.payload);
+      state.employee.push({...action.payload,id:Math.random()});
     },
     // handle employe removal
     removeEmployee(state, action) {
