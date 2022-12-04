@@ -148,7 +148,7 @@ const NewEmploee = () => {
               >
                 <option value="">Name</option>
                 <option value="Marketting">Marketting</option>
-                <option value="Sales">Sales</option>
+                <option value="Arabic Localizer">Arabic Localizer</option>
               </select>
             </div>
             <div className=" xl:grid xl:grid-cols-2 xl:gap-x-8 xl:pr-14">
@@ -171,8 +171,9 @@ const NewEmploee = () => {
                   <option value="">Select</option>
 
                   <option value="Marketting">Marketting</option>
-                  <option value="Sales">business</option>
+                  <option value="business">business</option>
                 </select>
+              
               </div>
               {/* Attendence Profile */}
               <div className="">
@@ -187,12 +188,14 @@ const NewEmploee = () => {
                 <select
                   id="Attendence Profile"
                   className=" xl:input-select border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                  {...register("Attendence-Profile")}
+                  {...register("empCase")}
                 >
                   <option value="">Select</option>
 
-                  <option value="Marketting">Marketting</option>
-                  <option value="Sales">Sales</option>
+                  <option value="absent">absent</option>
+                  <option value="present">present</option>
+                  <option value="weekend">weekend</option>
+                  <option value="on leave">on leave</option>
                 </select>
               </div>
               {/* Role */}
@@ -208,16 +211,16 @@ const NewEmploee = () => {
                 <select
                   id="Role"
                   className=" xl:input-select mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                  {...register("Role")}
+                  {...register("role")}
                 >
                   <option value="">Select</option>
 
-                  <option value="Marketting">Marketting</option>
-                  <option value="Sales">Sales</option>
+                  <option value="Employee">Employee</option>
+                  <option value="manger">manger</option>
                 </select>
               </div>
               {/* Position */}
-              <div className="">
+              <div >
                 <div className="mb-2 block">
                   <label
                     htmlFor="Position"
@@ -234,8 +237,8 @@ const NewEmploee = () => {
                   {...register("position")}
                 >
                   <option value="">Select</option>
-                  <option value="Marketting">Marketting</option>
-                  <option value="Sales">hr department</option>
+                  <option value="Marketting empployee">Marketting empployee</option>
+                  <option value="hr employee">hr employee</option>
                 </select>
               </div>
               {/* Direct Manger */}
@@ -251,12 +254,12 @@ const NewEmploee = () => {
                 <select
                   id="Direct Manger"
                   className=" xl:input-select mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                  {...register("Direct-Manger")}
+                  {...register("manger")}
                 >
                   <option value="">Select</option>
 
-                  <option value="Marketting">Marketting</option>
-                  <option value="Sales">Sales</option>
+                  <option value="Ahmed Hasssan">Ahmed Hasssan</option>
+                  <option value="Ali samir">Ali samir</option>
                 </select>
               </div>
             </div>
