@@ -1,5 +1,7 @@
 import { Button, Tooltip } from "flowbite-react";
-import { BiDotsVerticalRounded } from "react-icons/bi";
+import { AiOutlineExclamation } from "react-icons/ai";
+
+
 
 const ToolTip = ({ employee }) => {
   const { role, manger, office, date } = employee;
@@ -28,7 +30,7 @@ const ToolTip = ({ employee }) => {
       placement="bottom"
       style="light"
     >
-        <BiDotsVerticalRounded className="text-xs hover:cursor-pointer " />
+        <AiOutlineExclamation className="text-xs hover:cursor-pointer " />
     </Tooltip>
   );
 };

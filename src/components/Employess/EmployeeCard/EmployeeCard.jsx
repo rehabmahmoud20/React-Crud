@@ -14,17 +14,17 @@ const EmployeeCard = ({ employee, removeEmp }) => {
   const {  employeeName, position, department, empCase, id } = employee;
 
   const className = classNames({
-    "absent text-center w-14 mb-2 lg:mb-0": empCase === "absent",
-    "present text-center w-14 mb-2 lg:mb-0": empCase === "present",
-    "weekend text-center w-14 mb-2 lg:mb-0": empCase === "weekend" ,
-    "on-leave text-center w-14 mb-2 lg:mb-0": empCase === "on leave",
+    "absent flex items-center justify-center w-14 mb-2 lg:mb-0": empCase === "absent",
+    "present flex items-center justify-center w-14 mb-2 lg:mb-0": empCase === "present",
+    "weekend flex items-center justify-center w-14 mb-2 lg:mb-0": empCase === "weekend" ,
+    "on-leave flex items-center justify-center w-14 mb-2 lg:mb-0": empCase === "on leave",
   });
   return (
     <section className="card mx-auto mb-4 lg-mb-0 lg:flex w-fit py-3 px-1 lg:px-4 h-fit ">
       {/* card image */}
       <div className="card-img  lg:border-r">
         <img
-          className="w-16 h-16 rounded-full mb-4 mx-auto"
+          className="w-16 h-16 rounded-full mb-6 mx-auto"
           src={userPhoto}
           alt="userPhoto"
         />
@@ -42,8 +42,10 @@ const EmployeeCard = ({ employee, removeEmp }) => {
         <p className="text-xl card-name ">{employeeName}</p>
         <p className="mb-px">{position}</p>
         <p className="mb-2.5 muted">{department}</p>
-        <div className="emp-data lg:flex lg:space-x-16">
+        <div className="emp-data lg:flex ">
           <p className={className}>{empCase}</p>
+         
+         
           <div className="content-icons flex justify-start ">
             <div className="info-icon w-5 h-5 rounded-full bg-muted flex items-center justify-center mr-1.5">
               <BiMessageAlt className=" text-xs hover:cursor-pointer" />

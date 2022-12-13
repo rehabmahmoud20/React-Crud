@@ -1,6 +1,7 @@
 p{
     line-height: 1.2;
 }
+
 .card{
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
 }
@@ -14,27 +15,40 @@ p{
 
 .present,.absent,.weekend,.on-leave{
     font-size: 11px;
+  margin-right: 132px;
+  line-height: 0;
+
+
 }
 .present {
   background-color: #dcf3d7;
   color: var(--third-color);
+
 }
 .absent {
   background-color: #ffe7e7;
   color: #FF6A6A;
+
 }
 .weekend {
     background-color: #DCE6F2;
     color: #2764AC;
+
+
 }
 .on-leave {
     background-color: #ECEEF0;
     color: #8997A4;
+
+
 }
 .card-content{
     padding-left: 21px;
 }
 .info-icon{
-    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.3);
     background-color: #eaeef0;
+}
+.info-icon:last-of-type{
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.3);
+
 }

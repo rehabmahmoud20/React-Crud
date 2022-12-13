@@ -12,7 +12,7 @@ function App() {
       </div>
       <div className="mx-auto w-11/12 h-screen overflow-auto">
         <NavbarComponent />
-        <Search />
+        {/* <Search /> */}
         <EmployeeList />
       </div>
     </section>
