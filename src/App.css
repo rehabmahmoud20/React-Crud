@@ -54,7 +54,7 @@ body{
     }
    
   }
-  @media screen and (min-width: 1880px) {
+  @media screen and (min-width: 1920px) {
     .main-content{
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }

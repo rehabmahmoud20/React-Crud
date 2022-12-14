@@ -1,20 +1,31 @@
 /* ============================================ modal custom style =================================================*/
 body > div:nth-child(3) > div > div {
-  margin: auto auto 20px auto !important;
+  margin: auto auto 50px auto !important;
 }
-@media screen and (min-width: 1400px) {
+/* @media screen and (min-width: 1400px) {
   body > div:nth-child(3) > div > div {
     border-radius: 0;
     max-width: 75% !important;
     min-width: 75% !important;
   }
+} */
+body > div:nth-child(3) > div > div {
+  border-radius: 0;
+  max-width: 61% !important;
+  min-width: 61% !important;
 }
+
 /* =============================================== image container style =========================================*/
-.image-container {
-  padding: 52px;
-  border-color: #737373;
-  margin-bottom: 18px;
+@media screen and (min-width: 640px) {
+  .image-container {
+    padding: 50px 51px 32px;
+    margin-right: 11px;
+    border-color: #737373;
+    margin-bottom: 18px;
+  }
+ 
 }
+
 .image-container p {
   width: 8.625rem;
   line-height: 1.15;
@@ -42,16 +53,41 @@ body > div:nth-child(3) > div > div {
 
 /* ================================================== form inputs style ===========================================*/
 .personal-info-input {
-  margin: 0 0 15px 13px;
-  width: 402px;
+  /* margin: 0 0 15px 13px; */
+  width: 100%;
+  /* width: 401px; */
+  background-color: #737373;
+  /* width: 400px; */
+
+}
+@media screen and (min-width: 1280px) {
+  .personal-info{
+    width: 78%;
+    height: fit-content;
+  
+  
+    background-color: aquamarine;
+  }
+ 
+}
+
+
+input[type='checkbox']:checked{
+   background-color: #2764ac;
+}
+
+.input-margin{
+  /* margin-right: 26px; */
+}
+.label{
+  line-height: 1.15;
+  margin-bottom: 4px;
 }
 
 select {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
-/* .select-input-width{
-  width: 509px;
-} */
+
 @media screen and (min-width: 1280px) and (max-width: 1535px) {
   .personal-info-input {
     width: auto;

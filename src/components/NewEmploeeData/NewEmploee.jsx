@@ -56,15 +56,15 @@ const NewEmploee = () => {
               </p>
             </div>
             <div className="xl:flex justify-center ">
-              <div className="uppercase  border  border-dashed image-container h-fit mb-3 xl:mb-0 w-fit">
+              <div className="uppercase  border  border-dashed w-full sm:w-fit pb-8 pt-12 image-container h-fit mb-3 xl:mb-0 ">
                 {/* image drag and drop */}
               <Previews />
               </div>
-              <div className="2xl:grid 2xl:grid-cols-2  xl:w-4/5 gap-x-6">
-                <div className="personal-info-input">
+              <div className="xl:grid xl:grid-cols-2  xl:gap-x-6 personal-info">
+                <div className="personal-info-input input-margin mb-3.5">
                   <label
                     htmlFor="name"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
                   >
                     Name
                   </label>
@@ -77,10 +77,10 @@ const NewEmploee = () => {
                   />
                 </div>
 
-                <div className="personal-info-input">
+                <div className="personal-info-input mb-3.5">
                   <label
                     htmlFor="date"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
                   >
                     Start Date
                   </label>
@@ -93,10 +93,10 @@ const NewEmploee = () => {
                     {...register("date")}
                   />
                 </div>
-                <div className="personal-info-input">
+                <div className="personal-info-input input-margin mb-3.5 xl:mb-0">
                   <label
                     htmlFor="phone"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
                   >
                     Phone
                   </label>
@@ -108,12 +108,12 @@ const NewEmploee = () => {
                     {...register("phone")}
                   />
                 </div>
-                <div className="personal-info-input">
+                <div className="personal-info-input mb-3.5 xl:mb-0">
                   <label
                     htmlFor="email"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
                   >
-                    Your email
+                     Email
                   </label>
                   <input
                     type="email"
@@ -134,10 +134,10 @@ const NewEmploee = () => {
             </div>
             {/* office */}
             <div >
-              <div className="mb-2 block">
+              <div className=" block">
                 <label
                   htmlFor="office"
-                  className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                  className="block h-fit text-sm font-medium text-gray-900  label"
                 >
                   Office
                 </label>
@@ -155,10 +155,10 @@ const NewEmploee = () => {
             <div className=" xl:grid xl:grid-cols-2 xl:gap-x-8 ">
               {/* department */}
               <div>
-                <div className="mb-2 block">
+                <div className="block">
                   <label
                     htmlFor="department"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
                   >
                     Department
                   </label>
@@ -178,10 +178,10 @@ const NewEmploee = () => {
               </div>
               {/* Attendence Profile */}
               <div className="">
-                <div className="mb-2 block">
+                <div className=" block">
                   <label
                     htmlFor="Attendence Profile"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
                   >
                     Attendence Profile
                   </label>
@@ -201,10 +201,10 @@ const NewEmploee = () => {
               </div>
               {/* Role */}
               <div>
-                <div className="mb-2 block">
+                <div className="block">
                   <label
                     htmlFor="Role"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
                   >
                     Role
                   </label>
@@ -222,10 +222,10 @@ const NewEmploee = () => {
               </div>
               {/* Position */}
               <div >
-                <div className="mb-2 block">
+                <div className=" block ">
                   <label
                     htmlFor="Position"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label "
                   >
                     Position
                   </label>
@@ -244,10 +244,10 @@ const NewEmploee = () => {
               </div>
               {/* Direct Manger */}
               <div>
-                <div className="mb-2 block">
+                <div className=" block">
                   <label
                     htmlFor="Direct Manger"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1"
+                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
                   >
                     Direct Manger
                   </label>
@@ -278,7 +278,7 @@ const NewEmploee = () => {
                   id="home"
                   type="checkbox"
                   value=""
-                  className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  className="w-4 h-4 bg-gray-50 rounded border border-gray-300  focus:ring-0 focus:ring-cyan-100"
                 />
               </div>
               <label
@@ -288,14 +288,8 @@ const NewEmploee = () => {
                 Allow employee to work from home
               </label>
             </div>
-            <div className="flex flex-row-reverse gap-4 border-t pt-2.5">
-              <button
-                type="submit"
-                className=" text-white bg-main  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg  btn "
-              >
-                Save
-              </button>
-              <button
+            <div className="justify-center sm:justify-end flex  gap-4 border-t pt-2.5">
+            <button
                 className=" text-white bg-danger  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg   btn  "
                 onClick={() => {
                   setShowModal(false);
@@ -303,6 +297,13 @@ const NewEmploee = () => {
               >
                 Cancel
               </button>
+              <button
+                type="submit"
+                className=" text-white bg-main  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg  btn "
+              >
+                Save
+              </button>
+             
             </div>
           </form>
         </Modal.Body>
