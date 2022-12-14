@@ -1,6 +1,10 @@
+
+/* roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 /* ============================================ modal custom style =================================================*/
 body > div:nth-child(3) > div > div {
-  margin: auto auto 50px auto !important;
+  margin: auto auto 20px auto !important;
+  /* margin: auto; */
 }
 /* @media screen and (min-width: 1400px) {
   body > div:nth-child(3) > div > div {
@@ -13,6 +17,9 @@ body > div:nth-child(3) > div > div {
   border-radius: 0;
   max-width: 61% !important;
   min-width: 61% !important;
+}
+body > div:nth-child(3) > div{
+  height: 100%;
 }
 
 /* =============================================== image container style =========================================*/
@@ -56,7 +63,7 @@ body > div:nth-child(3) > div > div {
   /* margin: 0 0 15px 13px; */
   width: 100%;
   /* width: 401px; */
-  background-color: #737373;
+  /* background-color: #737373; */
   /* width: 400px; */
 
 }
@@ -66,7 +73,7 @@ body > div:nth-child(3) > div > div {
     height: fit-content;
   
   
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
   }
  
 }
@@ -82,8 +89,12 @@ input[type='checkbox']:checked{
 .label{
   line-height: 1.15;
   margin-bottom: 4px;
+  font-family: 'Roboto', sans-serif;
 }
-
+.text{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
 select {
   margin-bottom: 10px;
 }
@@ -117,4 +128,20 @@ select {
   width: 85px;
   height: 30px;
   font-size: 13px;
+}
+
+.office-info-margin{
+  margin-bottom: 18px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: red;
 }

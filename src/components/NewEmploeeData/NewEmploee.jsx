@@ -128,7 +128,7 @@ const NewEmploee = () => {
             </div>
             {/* ============================================ office info data ====================================================================== */}
             <div className="info-title relative">
-              <p className="font-bold main-color after-title  mb-8">
+              <p className="font-bold main-color after-title  office-info-margin">
                 Office Info
               </p>
             </div>
@@ -283,7 +283,7 @@ const NewEmploee = () => {
               </div>
               <label
                 htmlFor="home"
-                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 text-sm font-bold"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 text-sm font-bold text"
               >
                 Allow employee to work from home
               </label>
