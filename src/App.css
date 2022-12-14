@@ -48,7 +48,12 @@ body{
   ::-webkit-scrollbar-thumb {
     background: var(--muted);
   }
-
+  @media screen and (min-width: 1400px) {
+    .main-content{
+      grid-template-columns: 1fr 1fr 1fr ;
+    }
+   
+  }
   @media screen and (min-width: 1880px) {
     .main-content{
       grid-template-columns: 1fr 1fr 1fr 1fr;

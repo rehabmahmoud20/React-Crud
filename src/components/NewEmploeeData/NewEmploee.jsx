@@ -35,9 +35,9 @@ const NewEmploee = () => {
       <Modal
         show={showModal}
         popup={true}
-        onClose={() => {
-          setShowModal(false);
-        }}
+        // onClose={() => {
+        //   setShowModal(false);
+        // }}
       >
         <Modal.Body className="modal-width">
           <p className="uppercase form-title main-color ">new employee</p>
@@ -45,6 +45,7 @@ const NewEmploee = () => {
           <form
             onSubmit={handleSubmit((data) => {
               dispatch(getFormData(data));
+              setShowModal(false);
               reset();
             })}
           >
@@ -59,7 +60,7 @@ const NewEmploee = () => {
                 {/* image drag and drop */}
               <Previews />
               </div>
-              <div className="xl:grid xl:grid-cols-2  xl:w-4/5 ">
+              <div className="2xl:grid 2xl:grid-cols-2  xl:w-4/5 gap-x-6">
                 <div className="personal-info-input">
                   <label
                     htmlFor="name"
@@ -132,7 +133,7 @@ const NewEmploee = () => {
               </p>
             </div>
             {/* office */}
-            <div className="xl:pr-14">
+            <div >
               <div className="mb-2 block">
                 <label
                   htmlFor="office"
@@ -151,7 +152,7 @@ const NewEmploee = () => {
                 <option value="Arabic Localizer">Arabic Localizer</option>
               </select>
             </div>
-            <div className=" xl:grid xl:grid-cols-2 xl:gap-x-8 xl:pr-14">
+            <div className=" xl:grid xl:grid-cols-2 xl:gap-x-8 ">
               {/* department */}
               <div>
                 <div className="mb-2 block">
@@ -165,7 +166,7 @@ const NewEmploee = () => {
                 <select
                   id="department"
                   required
-                  className="   mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="  border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("department")}
                 >
                   <option value="">Select</option>
@@ -187,7 +188,7 @@ const NewEmploee = () => {
                 </div>
                 <select
                   id="Attendence Profile"
-                  className=" xl:input-select border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className=" w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("empCase")}
                 >
                   <option value="">Select</option>
@@ -210,7 +211,7 @@ const NewEmploee = () => {
                 </div>
                 <select
                   id="Role"
-                  className=" xl:input-select mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className=" w-full  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block   py-1 px-6"
                   {...register("role")}
                 >
                   <option value="">Select</option>
@@ -233,7 +234,7 @@ const NewEmploee = () => {
                 <select
                   id="Position"
                   required
-                  className=" xl:input-select  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className=" w-full  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("position")}
                 >
                   <option value="">Select</option>
@@ -253,7 +254,7 @@ const NewEmploee = () => {
                 </div>
                 <select
                   id="Direct Manger"
-                  className=" xl:input-select mr-8 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className=" w-full  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("manger")}
                 >
                   <option value="">Select</option>
@@ -290,12 +291,12 @@ const NewEmploee = () => {
             <div className="flex flex-row-reverse gap-4 border-t pt-2.5">
               <button
                 type="submit"
-                className=" text-white bg-main  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-1.5 text-center "
+                className=" text-white bg-main  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg  btn "
               >
                 Save
               </button>
               <button
-                className=" text-white bg-danger  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-1.5 text-center "
+                className=" text-white bg-danger  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg   btn  "
                 onClick={() => {
                   setShowModal(false);
                 }}

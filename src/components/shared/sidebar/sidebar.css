@@ -6,3 +6,8 @@
     background-color: #2765AC;
     border-color:  var(--third-color) ;
   }
+
+  .sidebar{
+    min-width: 106px ;
+    max-width: 106px ;
+  }

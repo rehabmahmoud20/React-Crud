@@ -5,8 +5,8 @@ body > div:nth-child(3) > div > div {
 @media screen and (min-width: 1400px) {
   body > div:nth-child(3) > div > div {
     border-radius: 0;
-    max-width: 1174px !important;
-    width: 1174px !important;
+    max-width: 75% !important;
+    min-width: 75% !important;
   }
 }
 /* =============================================== image container style =========================================*/
@@ -42,23 +42,43 @@ body > div:nth-child(3) > div > div {
 
 /* ================================================== form inputs style ===========================================*/
 .personal-info-input {
-  margin: 0 23.8px 15px 13px;
+  margin: 0 0 15px 13px;
+  width: 402px;
 }
 
 select {
   margin-bottom: 15px;
 }
-@media screen and (min-width: 1280px) and (max-width: 1535px){
+/* .select-input-width{
+  width: 509px;
+} */
+@media screen and (min-width: 1280px) and (max-width: 1535px) {
   .personal-info-input {
-    margin: 0 5px 15px 13px;
+    width: auto;
   }
 }
 
-/* button */
-#root > section > div.mx-auto.h-screen.overflow-auto.w-11\/12 > div > div > button > span{
-  padding: 6px 14px !important;
-  width: 98px;
+/*add new button */
+#root
+  > section
+  > div.mx-auto.h-screen.overflow-auto.w-11\/12
+  > div
+  > div
+  > button
+  > span {
+  font-size: 13px !important;
 }
-
-
-
+#root
+  > section
+  > div.mx-auto.w-11\/12.h-screen.overflow-auto
+  > div
+  > div
+  > button {
+  height: 30px;
+}
+/* form btn */
+.btn {
+  width: 85px;
+  height: 30px;
+  font-size: 13px;
+}
