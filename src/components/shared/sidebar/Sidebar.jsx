@@ -6,7 +6,7 @@ import { BsPeopleFill } from "react-icons/bs";
 
 const Sidebar = () => {
   return (
-    <aside className="sidebar bg-main w-fit inline-block  h-screen ">
+    <aside className="sidebar w-fit inline-block  h-screen ">
       <ul className="text-white ">
         <li className=" py-5 flex flex-col items-center side-item ease-in duration-300 border-l-4 border-transparent">
           <MdDashboard className="text-white text-2xl mx-auto " />

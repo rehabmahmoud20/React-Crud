@@ -18,7 +18,7 @@ class App extends React.Component {
         <div>
           <Sidebar />
         </div>
-        <div className="mx-auto w-11/12 h-screen overflow-auto">
+        <div className="main-bg w-full mx-auto  h-screen overflow-auto">
           <NavbarComponent />
           <div className="px-3 md:flex justify-between mb-12">
             <Search />

@@ -8,6 +8,6 @@
   }
 
   .sidebar{
-    min-width: 106px ;
-    max-width: 106px ;
+    width: 106px ;
+    background-image: linear-gradient(to bottom, #39a4dc, #2763ab)
   }

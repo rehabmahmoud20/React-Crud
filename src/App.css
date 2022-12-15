@@ -1,64 +1,70 @@
-:root{
-  --main-color:#23AAEB;
-  --second-color:#2765AC;
-  --third-color:#27B40C;
-  --muted:#8997A4;
+:root {
+  --main-color: #23aaeb;
+  --second-color: #2765ac;
+  --third-color: #27b40c;
+  --muted: #8997a4;
 }
-body{
+/* body{
   background-color: #F7F8F9;
 
+} */
+.main-bg {
+  background-color: #f7f8f9;
 }
-
-.main-color{
+.main-color {
   color: var(--main-color);
 }
 
-.bg-main{
+.bg-main {
   background-color: var(--main-color);
 }
-.muted{
-  color:var(--muted);
+.muted {
+  color: var(--muted);
 }
-.bg-muted{
+.bg-muted {
   background-color: var(--muted);
 }
-.bg-danger{
-  background-color: #FF6A6A;
+.bg-danger {
+  background-color: #ff6a6a;
 }
 
-.sign-in-bg{
+.sign-in-bg {
   background-color: var(--third-color);
 }
 
-body{
+body {
   overflow-y: hidden;
 }
 
-  ::-webkit-scrollbar {
-    width: 5px;
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+  width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+}
+@media screen and (min-width: 1400px) {
+  .main-content {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: white;
-    width: 5px;
+}
+
+@media screen and (min-width: 1800px) {
+  .main-content {
+    grid-template-columns: repeat(4, 1fr);
   }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--muted);
+}
+@media screen and (min-width: 1900px) {
+  .main-content {
+    column-gap: 45px;
   }
-  @media screen and (min-width: 1400px) {
-    .main-content{
-      grid-template-columns: 1fr 1fr 1fr ;
-    }
-   
-  }
-  @media screen and (min-width: 1920px) {
-    .main-content{
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-   
-  }
+}
 
 

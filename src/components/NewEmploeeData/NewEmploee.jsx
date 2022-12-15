@@ -71,7 +71,7 @@ const NewEmploee = () => {
                   <input
                     type="text"
                     id="name"
-                    className="  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
+                    className="  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
                     required
                     {...register("employeeName")}
                   />
@@ -87,7 +87,7 @@ const NewEmploee = () => {
                   <input
                     type="date"
                     id="date"
-                    className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 pl-6"
+                    className="muted border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 pl-6"
                     placeholder="20/03/2020"
                     required
                     {...register("date")}
@@ -103,7 +103,7 @@ const NewEmploee = () => {
                   <input
                     type="text"
                     id="phone"
-                    className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
+                    className=" border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
                     required
                     {...register("phone")}
                   />
@@ -118,7 +118,7 @@ const NewEmploee = () => {
                   <input
                     type="email"
                     id="email"
-                    className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                    className=" border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                     placeholder="Email"
                     required
                     {...register("email")}
@@ -144,10 +144,10 @@ const NewEmploee = () => {
               </div>
               <select
                 id="office"
-                className="   border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                className=" muted   border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                 {...register("office")}
               >
-                <option value="">Name</option>
+                <option  value="">Name</option>
                 <option value="Marketting">Marketting</option>
                 <option value="Arabic Localizer">Arabic Localizer</option>
               </select>
@@ -166,7 +166,7 @@ const NewEmploee = () => {
                 <select
                   id="department"
                   required
-                  className="  border border-gray-300 text-gray-900  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="muted  border border-gray-300 text-gray-900  text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("department")}
                 >
                   <option value="">Select</option>
@@ -181,14 +181,14 @@ const NewEmploee = () => {
                 <div className=" block">
                   <label
                     htmlFor="Attendence Profile"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
+                    className=" block h-fit text-sm font-medium text-gray-900 mb-1 label"
                   >
                     Attendence Profile
                   </label>
                 </div>
                 <select
                   id="Attendence Profile"
-                  className=" w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="muted w-full border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("empCase")}
                 >
                   <option value="">Select</option>
@@ -211,7 +211,7 @@ const NewEmploee = () => {
                 </div>
                 <select
                   id="Role"
-                  className=" w-full  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block   py-1 px-6"
+                  className="muted w-full  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block   py-1 px-6"
                   {...register("role")}
                 >
                   <option value="">Select</option>
@@ -225,7 +225,7 @@ const NewEmploee = () => {
                 <div className=" block ">
                   <label
                     htmlFor="Position"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label "
+                    className=" block h-fit text-sm font-medium text-gray-900 mb-1 label "
                   >
                     Position
                   </label>
@@ -234,7 +234,7 @@ const NewEmploee = () => {
                 <select
                   id="Position"
                   required
-                  className=" w-full  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="muted w-full  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("position")}
                 >
                   <option value="">Select</option>
@@ -254,7 +254,7 @@ const NewEmploee = () => {
                 </div>
                 <select
                   id="Direct Manger"
-                  className=" w-full  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="muted w-full  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("manger")}
                 >
                   <option value="">Select</option>
@@ -278,7 +278,7 @@ const NewEmploee = () => {
                   id="home"
                   type="checkbox"
                   value=""
-                  className="w-4 h-4 bg-gray-50 rounded border border-gray-300  focus:ring-0 focus:ring-cyan-100"
+                  className="muted w-4 h-4 bg-gray-50 rounded border border-gray-300  focus:ring-0 focus:ring-cyan-100"
                 />
               </div>
               <label
@@ -290,7 +290,7 @@ const NewEmploee = () => {
             </div>
             <div className="justify-center sm:justify-end flex  gap-4 border-t pt-2.5">
             <button
-                className=" text-white bg-danger  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg   btn  "
+                className="rounded text-white bg-danger  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium    btn  "
                 onClick={() => {
                   setShowModal(false);
                 }}
@@ -299,7 +299,7 @@ const NewEmploee = () => {
               </button>
               <button
                 type="submit"
-                className=" text-white bg-main  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg  btn "
+                className=" rounded text-white bg-main  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium   btn "
               >
                 Save
               </button>

@@ -38,6 +38,7 @@ body > div:nth-child(3) > div{
   line-height: 1.15;
   letter-spacing: 1.73px;
   font-size: 13px;
+  color: #5c6974;
 }
 
 /* ==================================================== form title style ========================================= */
@@ -144,4 +145,7 @@ select {
 
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: red;
+}
+input,select{
+  border-radius: 5px !important;
 }

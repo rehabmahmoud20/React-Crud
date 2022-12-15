@@ -8,7 +8,7 @@ const NavbarComponent = () => {
     <Navbar
       fluid={true}
       rounded={true}
-      className=" rounded-none md-divide-gray-200 items-center  mx-auto mb-7 "
+      className=" rounded-none md-divide-gray-200 items-center   mx-auto mb-7 "
     >
       <div></div>
       <Navbar.Toggle />

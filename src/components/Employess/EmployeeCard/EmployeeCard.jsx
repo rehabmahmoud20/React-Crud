@@ -10,6 +10,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { BiMessageAlt } from "react-icons/bi";
 import { AiOutlinePhone } from "react-icons/ai";
 import CustomizedTooltips from './ToolTip';
+import ArrowTooltips from '../ArrowTooltips';
 
 const EmployeeCard = ({ employee, removeEmp }) => {
   const {  employeeName, position, department, empCase, id } = employee;
@@ -56,7 +57,8 @@ const EmployeeCard = ({ employee, removeEmp }) => {
             </div>
             <div className="info-icon  w-5 h-fit h-5 rounded-full bg-muted flex items-center bg-blue-100 justify-center">
               {/* <ToolTip employee={employee} /> */}
-              <CustomizedTooltips key="employeeName" employee={employee} />
+              {/* <CustomizedTooltips key="employeeName" employee={employee} /> */}
+              {/* <ArrowTooltips employee={employee}/> */}
             </div>
           </div>
         </div>
