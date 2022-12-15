@@ -18,11 +18,12 @@ class App extends React.Component {
         <div>
           <Sidebar />
         </div>
-        <div className="main-bg w-full mx-auto  h-screen overflow-auto">
+        <div className="main-bg w-full mx-auto  h-screen overflow-auto ">
           <NavbarComponent />
-          <div className="px-3 md:flex justify-between mb-12">
+          <div className=" flex mb-12 px-1 sm:px-9">
             <Search />
-            <NewEmploee className='w-1/5' />
+            <NewEmploee  />
+
           </div>
 
           <EmployeeList />

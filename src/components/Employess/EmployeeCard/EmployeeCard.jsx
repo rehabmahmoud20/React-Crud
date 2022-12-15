@@ -7,8 +7,8 @@ import ToolTip from "./ToolTip";
 import { MdModeEdit } from "react-icons/md";
 import { AiOutlinePauseCircle } from "react-icons/ai";
 import { AiFillDelete } from "react-icons/ai";
-import { BiMessageAlt } from "react-icons/bi";
-import { AiOutlinePhone } from "react-icons/ai";
+import { FaEnvelope } from "react-icons/fa";
+import { ImPhoneHangUp } from "react-icons/im";
 import CustomizedTooltips from './ToolTip';
 import ArrowTooltips from '../ArrowTooltips';
 
@@ -22,7 +22,7 @@ const EmployeeCard = ({ employee, removeEmp }) => {
     "on-leave flex items-center justify-center mb-2 sm:mb-0 ": empCase === "on leave",
   });
   return (
-    <section className="card mx-auto mb-4 sm-mb-0 sm:flex w-fit py-3  sm:pr-4 h-fit ">
+    <section className="card bg-white mx-auto mb-4 sm-mb-0 flex w-fit py-3 px-2 sm:px-0 sm:pr-4 h-fit ">
       {/* card image */}
       <div className="card-img   sm:border-r">
         <img
@@ -40,20 +40,20 @@ const EmployeeCard = ({ employee, removeEmp }) => {
         </div>
       </div>
       {/* card content */}
-      <div className="card-content capitalize pr-5 lg:pr-0">
+      <div className="card-content capitalize pl-2 sm:pr-5 lg:pr-0">
         <p className="text-xl card-name  ">{employeeName}</p>
         <p className="mb-px poistion-text">{position}</p>
         <p className="mb-2.5 muted department-text">{department}</p>
-        <div className="emp-data sm:flex items-center">
+        <div className="emp-data flex sm:items-center justify-between">
           <p className={className}>{empCase}</p>
          
          
           <div className="content-icons flex justify-start ">
             <div className="info-icon w-5 h-5 rounded-full bg-muted flex items-center justify-center mr-1.5">
-              <BiMessageAlt className=" text-xs hover:cursor-pointer" />
+              <FaEnvelope className=" text-xs hover:cursor-pointer" />
             </div>
             <div className="info-icon w-5 h-5 rounded-full bg-muted flex items-center justify-center mr-1.5">
-              <AiOutlinePhone className="text-xs hover:cursor-pointer" />
+              <ImPhoneHangUp className="text-xs hover:cursor-pointer" />
             </div>
             <div className="info-icon  w-5 h-fit h-5 rounded-full bg-muted flex items-center bg-blue-100 justify-center">
               {/* <ToolTip employee={employee} /> */}

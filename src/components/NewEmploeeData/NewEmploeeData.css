@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 /* ============================================ modal custom style =================================================*/
 body > div:nth-child(3) > div > div {
-  margin: auto auto 20px auto !important;
+  /* margin: auto auto 20px auto !important; */
   /* margin: auto; */
 }
 /* @media screen and (min-width: 1400px) {
@@ -16,7 +16,7 @@ body > div:nth-child(3) > div > div {
 body > div:nth-child(3) > div > div {
   border-radius: 0;
   max-width: 61% !important;
-  min-width: 61% !important;
+
 }
 body > div:nth-child(3) > div{
   height: 100%;
@@ -29,6 +29,7 @@ body > div:nth-child(3) > div{
     margin-right: 11px;
     border-color: #737373;
     margin-bottom: 18px;
+    width: 24%;
   }
  
 }
@@ -62,6 +63,7 @@ body > div:nth-child(3) > div{
 /* ================================================== form inputs style ===========================================*/
 .personal-info-input {
   /* margin: 0 0 15px 13px; */
+  /* margin: auto !important; */
   width: 100%;
   /* width: 401px; */
   /* background-color: #737373; */
@@ -107,23 +109,19 @@ select {
 }
 
 /*add new button */
-#root
-  > section
-  > div.mx-auto.h-screen.overflow-auto.w-11\/12
-  > div
-  > div
-  > button
-  > span {
-  font-size: 13px !important;
+
+#root > section > div.main-bg.w-full.mx-auto.h-screen.overflow-auto > div > div > button > span{
+  font-size: 13px ;
+  font-family: 'Roboto', sans-serif;
+
 }
-#root
-  > section
-  > div.mx-auto.w-11\/12.h-screen.overflow-auto
-  > div
-  > div
-  > button {
+#root > section > div.main-bg.w-full.mx-auto.h-screen.overflow-auto > div > div > button{
   height: 30px;
+  width: 101px;
+  background-color: #2764ac;
+  border-radius: 5px;
 }
+
 /* form btn */
 .btn {
   width: 85px;

@@ -27,7 +27,7 @@ const NewEmploee = () => {
   } = useForm({ mode: "onChange" });
   return (
     <React.Fragment>
-      <div className="flex flex-wrap gap-4">
+      <div className="">
         <Button onClick={onClick} className=" p-0">
           + Add new
         </Button>
@@ -51,7 +51,7 @@ const NewEmploee = () => {
           >
             {/* ============================================ personal info data ====================================================================== */}
             <div className="info-title relative">
-              <p className="font-bold main-color after-title  mb-8">
+              <p className="font-bold main-color after-title  mb-7">
                 Personal Info
               </p>
             </div>
@@ -70,11 +70,19 @@ const NewEmploee = () => {
                   </label>
                   <input
                     type="text"
+                    name="employeeName"
                     id="name"
                     className="  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
-                    required
-                    {...register("employeeName")}
+                    
+                    {...register('employeeName', {
+                      required: 'This is required',
+                  })}
                   />
+                     {errors.employeeName?.type === 'required' && (
+                                    <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                                        {errors.employeeName.message}
+                                    </p>
+                                )}
                 </div>
 
                 <div className="personal-info-input mb-3.5">
@@ -128,7 +136,7 @@ const NewEmploee = () => {
             </div>
             {/* ============================================ office info data ====================================================================== */}
             <div className="info-title relative">
-              <p className="font-bold main-color after-title  office-info-margin">
+              <p className="font-bold main-color after-title  mb-3.5 ">
                 Office Info
               </p>
             </div>
@@ -267,7 +275,7 @@ const NewEmploee = () => {
             {/* ============================================ Work From Home ====================================================================== */}
 
             <div className="info-title relative">
-              <p className="font-bold main-color after-title  mb-8">
+              <p className="font-bold main-color after-title  mb-6">
                 Work From Home
               </p>
             </div>
