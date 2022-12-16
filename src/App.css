@@ -31,6 +31,14 @@
 .sign-in-bg {
   background-color: var(--third-color);
 }
+.sign-in-radius{
+  border-radius: 5px;
+}
+.nav-notfi-span{
+  font-size: 8px;
+  right: 7px;
+    bottom: 13px;
+}
 
 body {
   overflow-y: hidden;
@@ -50,6 +58,11 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--muted);
 }
+@media screen and (min-width: 950px) {
+  .main-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media screen and (min-width: 1400px) {
   .main-content {
     grid-template-columns: repeat(3, 1fr);
@@ -67,4 +80,9 @@ body {
   }
 }
 
+/* tooltip */
+.MuiTooltip-arrow.css-kudwh-MuiTooltip-arrow{
+  color: #dadde9 !important;
+  outline: '1px solid #dadde9',
 
+}

@@ -27,8 +27,8 @@ const NewEmploee = () => {
   } = useForm({ mode: "onChange" });
   return (
     <React.Fragment>
-      <div className="">
-        <Button onClick={onClick} className=" p-0">
+      <div >
+        <Button onClick={onClick} >
           + Add new
         </Button>
       </div>
@@ -70,20 +70,22 @@ const NewEmploee = () => {
                   </label>
                   <input
                     type="text"
-                    name="employeeName"
+                    // name="employeeName"
                     id="name"
+                    placeholder=" "
                     className="  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
                     
                     {...register('employeeName', {
                       required: 'This is required',
                   })}
                   />
-                     {errors.employeeName?.type === 'required' && (
-                                    <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                  {errors.employeeName?.type === 'required' && (
+                                    <p className="mt-0.5 text-sm text-red-600 dark:text-red-500">
                                         {errors.employeeName.message}
                                     </p>
                                 )}
                 </div>
+               
 
                 <div className="personal-info-input mb-3.5">
                   <label
@@ -95,12 +97,21 @@ const NewEmploee = () => {
                   <input
                     type="date"
                     id="date"
+
                     className="muted border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 pl-6"
                     placeholder="20/03/2020"
-                    required
-                    {...register("date")}
+                     {...register("date", {
+                      required: 'This is required',
+                  })}
                   />
+                   {errors.employeeName?.type === 'required' && (
+                                    <p className="mt-0.5 text-sm text-red-600 dark:text-red-500">
+                                        {errors.employeeName.message}
+                                    </p>
+                                )}
                 </div>
+               
+                                
                 <div className="personal-info-input input-margin mb-3.5 xl:mb-0">
                   <label
                     htmlFor="phone"
@@ -112,7 +123,7 @@ const NewEmploee = () => {
                     type="text"
                     id="phone"
                     className=" border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
-                    required
+                    
                     {...register("phone")}
                   />
                 </div>
@@ -128,9 +139,16 @@ const NewEmploee = () => {
                     id="email"
                     className=" border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                     placeholder="Email"
-                    required
-                    {...register("email")}
+                    
+                    {...register("email", {
+                      required: 'This is required',
+                  })}
                   />
+                   {errors.email?.type === 'required' && (
+                                    <p className="mt-0.5 text-sm text-red-600 dark:text-red-500">
+                                        {errors.email.message}
+                                    </p>
+                                )}
                 </div>
               </div>
             </div>
@@ -141,7 +159,7 @@ const NewEmploee = () => {
               </p>
             </div>
             {/* office */}
-            <div >
+            <div className="mb-2.5">
               <div className=" block">
                 <label
                   htmlFor="office"
@@ -162,7 +180,7 @@ const NewEmploee = () => {
             </div>
             <div className=" xl:grid xl:grid-cols-2 xl:gap-x-8 ">
               {/* department */}
-              <div>
+              <div className="mb-2.5">
                 <div className="block">
                   <label
                     htmlFor="department"
@@ -173,19 +191,27 @@ const NewEmploee = () => {
                 </div>
                 <select
                   id="department"
-                  required
+                  
                   className="muted  border border-gray-300 text-gray-900  text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                  {...register("department")}
+                  {...register('department', {
+                    required: 'This is required',
+                })}
                 >
                   <option value="">Select</option>
 
                   <option value="Marketting">Marketting</option>
                   <option value="business">business</option>
                 </select>
+
+                {errors.department?.type === 'required' && (
+                                    <p className="mt-0.5 text-sm text-red-600 dark:text-red-500">
+                                        {errors.department.message}
+                                    </p>
+                                )}
               
               </div>
               {/* Attendence Profile */}
-              <div className="">
+              <div className="mb-2.5">
                 <div className=" block">
                   <label
                     htmlFor="Attendence Profile"
@@ -208,7 +234,7 @@ const NewEmploee = () => {
                 </select>
               </div>
               {/* Role */}
-              <div>
+              <div className="mb-2.5">
                 <div className="block">
                   <label
                     htmlFor="Role"
@@ -229,7 +255,7 @@ const NewEmploee = () => {
                 </select>
               </div>
               {/* Position */}
-              <div >
+              <div className="mb-2.5">
                 <div className=" block ">
                   <label
                     htmlFor="Position"
@@ -241,17 +267,24 @@ const NewEmploee = () => {
 
                 <select
                   id="Position"
-                  required
+                  
                   className="muted w-full  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                  {...register("position")}
+                  {...register('Position', {
+                    required: 'This is required',
+                })}
                 >
                   <option value="">Select</option>
                   <option value="Marketting empployee">Marketting empployee</option>
                   <option value="hr employee">hr employee</option>
                 </select>
+                {errors.Position?.type === 'required' && (
+                                    <p className="mt-0.5 text-sm text-red-600 dark:text-red-500">
+                                        {errors.Position.message}
+                                    </p>
+                                )}
               </div>
               {/* Direct Manger */}
-              <div>
+              <div className="mb-2.5">
                 <div className=" block">
                   <label
                     htmlFor="Direct Manger"

@@ -25,7 +25,7 @@ body > div:nth-child(3) > div{
 /* =============================================== image container style =========================================*/
 @media screen and (min-width: 640px) {
   .image-container {
-    padding: 50px 51px 32px;
+    /* padding: 50px 51px 32px; */
     margin-right: 11px;
     border-color: #737373;
     margin-bottom: 18px;
@@ -76,7 +76,6 @@ body > div:nth-child(3) > div{
     height: fit-content;
   
   
-    /* background-color: aquamarine; */
   }
  
 }
@@ -86,9 +85,7 @@ input[type='checkbox']:checked{
    background-color: #2764ac;
 }
 
-.input-margin{
-  /* margin-right: 26px; */
-}
+
 .label{
   line-height: 1.15;
   margin-bottom: 4px;
@@ -98,9 +95,9 @@ input[type='checkbox']:checked{
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
-select {
+/* select {
   margin-bottom: 10px;
-}
+} */
 
 @media screen and (min-width: 1280px) and (max-width: 1535px) {
   .personal-info-input {

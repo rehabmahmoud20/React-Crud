@@ -11,3 +11,8 @@
     width: 106px ;
     background-image: linear-gradient(to bottom, #39a4dc, #2763ab)
   }
+  .aside-notfication-span{
+    font-size: 8px;
+    right: 31px;
+    top: 18px;
+  }

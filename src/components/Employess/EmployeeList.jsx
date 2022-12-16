@@ -12,7 +12,7 @@ const EmployeeList = () => {
     dispatch(removeEmployee(id));
   };
   return (
-    <main className="  main-content  w-full  md:grid   lg:grid-cols-2   h-fit gap-y-9 px-1  sm:px-9">
+    <main className="  main-content  w-full  md:grid      h-fit gap-y-9 px-1 md:px-4  lg:px-9">
       {emps.map((e) => (
         <EmployeeCard employee={e} key={e.id} removeEmp={deleteEmployee} />
       ))}

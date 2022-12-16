@@ -20,8 +20,11 @@ const Sidebar = () => {
           <AiOutlineCoffee className="text-white text-2xl mx-auto" />
           <p >holidays</p>
         </li>
-        <li className=" py-5 flex flex-col   items-center  sidebar-active border-l-4 ">
+        <li className=" py-5 flex flex-col   items-center  sidebar-active border-l-4 relative">
           <BsPeopleFill className="text-white text-2xl mx-auto" />
+          <div className="w-3.5 h-3.5 rounded-full bg-cyan-600 bg-danger aside-notfication-span  absolute  flex items-center text-white justify-center">
+              <span>1</span>
+            </div>
           <p >employess</p>
         </li>
         <li className="  py-5 flex flex-col   items-center  side-item ease-in duration-300 border-l-4 border-transparent">

@@ -40,7 +40,7 @@ const EmployeeCard = ({ employee, removeEmp }) => {
         </div>
       </div>
       {/* card content */}
-      <div className="card-content capitalize pl-2 sm:pr-5 lg:pr-0">
+      <div className="card-content capitalize pl-2  lg:pr-0">
         <p className="text-xl card-name  ">{employeeName}</p>
         <p className="mb-px poistion-text">{position}</p>
         <p className="mb-2.5 muted department-text">{department}</p>
@@ -56,9 +56,7 @@ const EmployeeCard = ({ employee, removeEmp }) => {
               <ImPhoneHangUp className="text-xs hover:cursor-pointer" />
             </div>
             <div className="info-icon  w-5 h-fit h-5 rounded-full bg-muted flex items-center bg-blue-100 justify-center">
-              {/* <ToolTip employee={employee} /> */}
-              {/* <CustomizedTooltips key="employeeName" employee={employee} /> */}
-              {/* <ArrowTooltips employee={employee}/> */}
+              <CustomizedTooltips key="employeeName" employee={employee} />
             </div>
           </div>
         </div>
