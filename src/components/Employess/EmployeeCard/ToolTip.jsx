@@ -61,7 +61,7 @@ export default function CustomizedTooltips({employee}) {
           
        </React.Fragment>}>
        <div className=" hover:cursor-pointer">
-          <AiOutlineExclamation />
+          <AiOutlineExclamation className="icon-size"/>
         </div>
       </HtmlTooltip>
      

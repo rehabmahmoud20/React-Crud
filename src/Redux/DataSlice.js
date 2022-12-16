@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { emloyeeData } from "../data.js";
+import GET_EMP from '../components/Employess/EmployeeList'
 const initialState = {
   employee: emloyeeData,
   searchedDataCopy: emloyeeData,
 };
+// console.log(GET_EMP)
 
 // reducer => state + action
 export const dataSlice = createSlice({

@@ -64,7 +64,7 @@ const NewEmploee = () => {
                 <div className="personal-info-input input-margin mb-3.5">
                   <label
                     htmlFor="name"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
+                    className="block h-fit  font-medium text-gray-900 mb-1 label"
                   >
                     Name
                   </label>
@@ -90,7 +90,7 @@ const NewEmploee = () => {
                 <div className="personal-info-input mb-3.5">
                   <label
                     htmlFor="date"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
+                    className="block h-fit  font-medium text-gray-900 mb-1 label"
                   >
                     Start Date
                   </label>
@@ -115,7 +115,7 @@ const NewEmploee = () => {
                 <div className="personal-info-input input-margin mb-3.5 xl:mb-0">
                   <label
                     htmlFor="phone"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
+                    className="block h-fit  font-medium text-gray-900 mb-1 label"
                   >
                     Phone
                   </label>
@@ -130,7 +130,7 @@ const NewEmploee = () => {
                 <div className="personal-info-input mb-3.5 xl:mb-0">
                   <label
                     htmlFor="email"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
+                    className="block h-fit  font-medium text-gray-900 mb-1 label"
                   >
                      Email
                   </label>
@@ -163,7 +163,7 @@ const NewEmploee = () => {
               <div className=" block">
                 <label
                   htmlFor="office"
-                  className="block h-fit text-sm font-medium text-gray-900  label"
+                  className="block h-fit  text-gray-900  label"
                 >
                   Office
                 </label>
@@ -184,7 +184,7 @@ const NewEmploee = () => {
                 <div className="block">
                   <label
                     htmlFor="department"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
+                    className="block h-fit  text-gray-900 mb-1 label"
                   >
                     Department
                   </label>
@@ -215,7 +215,7 @@ const NewEmploee = () => {
                 <div className=" block">
                   <label
                     htmlFor="Attendence Profile"
-                    className=" block h-fit text-sm font-medium text-gray-900 mb-1 label"
+                    className=" block h-fit  text-gray-900 mb-1 label"
                   >
                     Attendence Profile
                   </label>
@@ -238,7 +238,7 @@ const NewEmploee = () => {
                 <div className="block">
                   <label
                     htmlFor="Role"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
+                    className="block h-fit  text-gray-900 mb-1 label"
                   >
                     Role
                   </label>
@@ -259,7 +259,7 @@ const NewEmploee = () => {
                 <div className=" block ">
                   <label
                     htmlFor="Position"
-                    className=" block h-fit text-sm font-medium text-gray-900 mb-1 label "
+                    className=" block h-fit  text-gray-900 mb-1 label "
                   >
                     Position
                   </label>
@@ -288,7 +288,7 @@ const NewEmploee = () => {
                 <div className=" block">
                   <label
                     htmlFor="Direct Manger"
-                    className="block h-fit text-sm font-medium text-gray-900 mb-1 label"
+                    className="block h-fit  text-gray-900 mb-1 label"
                   >
                     Direct Manger
                   </label>
@@ -324,7 +324,7 @@ const NewEmploee = () => {
               </div>
               <label
                 htmlFor="home"
-                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 text-sm font-bold text"
+                className="ml-2  text-gray-900 dark:text-gray-300 text-sm font-bold text"
               >
                 Allow employee to work from home
               </label>
