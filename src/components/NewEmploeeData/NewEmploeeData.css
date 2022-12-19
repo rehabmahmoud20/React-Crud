@@ -18,24 +18,35 @@ body > div:nth-child(3) > div > div {
   max-width: 61% !important;
 
 }
+body > div:nth-child(3) > div > div > div > div{
+  max-height: 678px !important;
+  overflow: auto;
+}
 body > div:nth-child(3) > div{
   height: 100%;
 }
 
 /* =============================================== image container style =========================================*/
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 1024px) {
   .image-container {
     /* padding: 50px 51px 32px; */
     margin-right: 11px;
     border-color: #737373;
-    margin-bottom: 18px;
-    width: 24%;
+    /* margin-bottom: 18px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24%; 
+    height: 112px;
   }
  
 }
-
+/* 257 */
 .image-container p {
-  width: 8.625rem;
+  /* width: 56%; */
+    text-align: center;
+    
+
   line-height: 1.15;
   letter-spacing: 1.73px;
   font-size: 13px;
@@ -70,7 +81,7 @@ body > div:nth-child(3) > div{
   /* width: 400px; */
 
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .personal-info{
     width: 78%;
     height: fit-content;
@@ -90,7 +101,6 @@ input[type='checkbox']:checked{
   line-height: 1.15;
   margin-bottom: 4px;
   font-family: 'Roboto', sans-serif;
-  font-size: 13px;
 }
 .text{
   font-family: 'Roboto', sans-serif;

@@ -26,7 +26,8 @@ const HtmlTooltip = styled(({ className, ...props }) => (
 
 
 export default function CustomizedTooltips({employee}) {
-  const { role, manger, office, date } = employee;
+  const { role,manager, office,joining_date ,copied_managers  } = employee;
+  console.log(copied_managers[0])
 
   return (
     <div>
@@ -42,26 +43,26 @@ export default function CustomizedTooltips({employee}) {
            </div>
            <div>
              <div className="muted">  coppied manger :</div>
-             <div>{manger}</div>
+             <div>{manager.name}</div>
            </div>
 
            <div>
              <div className="muted">
                Joinning date :
              </div>
-             <div>{date}</div>
+             <div>{joining_date}</div>
            </div>
            <div>
              <div className="muted">
                Manger:
              </div>
-             <div>{manger}</div>
+             <div>{manager.name}</div>
            </div>
          </span>
           
        </React.Fragment>}>
        <div className=" hover:cursor-pointer">
-          <AiOutlineExclamation className="icon-size"/>
+          <AiOutlineExclamation className=""/>
         </div>
       </HtmlTooltip>
      

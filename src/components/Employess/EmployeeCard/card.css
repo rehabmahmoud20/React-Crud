@@ -89,6 +89,11 @@
   width: 104px;
 }
 }
+.content-icons{
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+}
 .icon-size{
   font-size: 10px;
 }

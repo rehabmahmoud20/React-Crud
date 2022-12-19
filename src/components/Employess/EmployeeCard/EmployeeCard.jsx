@@ -25,7 +25,7 @@ const EmployeeCard = ({ employee, removeEmp }) => {
   //   "on-leave flex items-center justify-center mb-2 sm:mb-0 ": empCase === "on leave",
   // });
   return (
-    <section className="card bg-white mx-auto mb-4 sm-mb-0 flex w-fit py-3 px-2 sm:px-0 sm:pr-4 h-fit ">
+    <section className="card relative bg-white mx-auto mb-4 sm-mb-0 flex w-fit py-3 px-2 sm:px-0 sm:pr-4 h-fit ">
       {/* card image */}
       <div className="card-img   sm:border-r">
         <img
@@ -45,13 +45,10 @@ const EmployeeCard = ({ employee, removeEmp }) => {
       {/* card content */}
       <div className="card-content capitalize pl-2  lg:pr-0">
         <p className="text-xl card-name  ">{name}</p>
-        {position ? (<p className="mb-px  poistion-text">{position.name }</p>):<p className="mb-px  poistion-text">no position</p>}
-        {department ? (<p  className="mb-2.5 muted department-text">{department.name }</p>):<p  className="mb-2.5 muted department-text">no department</p>}
+        {position && (<p className="mb-px  poistion-text">{position.name }</p>)}
+        {department && (<p  className="mb-2.5 muted department-text">{department.name }</p>)}
 
-        {/* <p className="mb-px poistion-text">{position.name ? 'kkk' : 'kk'}</p> */}
-        {/* <p className="mb-2.5 muted department-text">{department}</p> */}
         <div className="emp-data flex sm:items-center justify-between">
-          {/* <p className={className}>{empCase}</p> */}
          
          
           <div className="content-icons flex justify-start ">
@@ -62,7 +59,7 @@ const EmployeeCard = ({ employee, removeEmp }) => {
               <ImPhoneHangUp className="icon-size hover:cursor-pointer" />
             </div>
             <div className="info-icon  w-5 h-fit h-5 rounded-full bg-muted flex items-center bg-blue-100 justify-center">
-              <CustomizedTooltips key="employeeName" employee={employee} />
+              {/* <CustomizedTooltips key="employeeName" employee={employee} /> */}
             </div>
           </div>
         </div>

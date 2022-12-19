@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { emloyeeData } from "../data.js";
-import GET_EMP from '../components/Employess/EmployeeList'
+import GET_EMP from '../queries'
+
+import currentPosts from '../components/Employess/EmployeeList'
+// console.log(currentPosts)
 const initialState = {
   employee: emloyeeData,
   searchedDataCopy: emloyeeData,

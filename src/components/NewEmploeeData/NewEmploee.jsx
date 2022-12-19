@@ -11,9 +11,21 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { getFormData } from "../../Redux/DataSlice";
 
+import {COMP_OFFICE} from '../../queries'
+import { useQuery } from "@apollo/client";
+
+
+
 const NewEmploee = () => {
   const [showModal, setShowModal] = useState(false);
+  const [office,setOffice] = useState('')
   const dispatch = useDispatch();
+  const { loading, error, data, refetch } = useQuery(COMP_OFFICE)
+  if (data){
+    console.log(data.company_offices.data[0].name
+      // setOffice(data.company_offices.data[0].name)
+      )
+  }
 
   const onClick = () => {
     setShowModal(true);
@@ -31,6 +43,7 @@ const NewEmploee = () => {
         <Button onClick={onClick} >
           + Add new
         </Button>
+        
       </div>
       <Modal
         show={showModal}
@@ -55,16 +68,16 @@ const NewEmploee = () => {
                 Personal Info
               </p>
             </div>
-            <div className="xl:flex justify-center ">
-              <div className="uppercase  border  border-dashed w-full sm:w-fit pb-8 pt-12 image-container h-fit mb-3 xl:mb-0 ">
+            <div className="lg:flex ">
+              <div className="uppercase  border  border-dashed w-full  pb-8 pt-12 image-container h-fit mb-3 xl:mb-0 ">
                 {/* image drag and drop */}
               <Previews />
               </div>
-              <div className="xl:grid xl:grid-cols-2  xl:gap-x-6 personal-info">
+              <div className="lg:grid lg:grid-cols-2  lg:gap-x-6 personal-info">
                 <div className="personal-info-input input-margin mb-3.5">
                   <label
                     htmlFor="name"
-                    className="block h-fit  font-medium text-gray-900 mb-1 label"
+                    className="block h-fit text-sm font-medium text-red-600 mb-1 label"
                   >
                     Name
                   </label>
@@ -73,7 +86,7 @@ const NewEmploee = () => {
                     // name="employeeName"
                     id="name"
                     placeholder=" "
-                    className="  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
+                    className="  border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
                     
                     {...register('employeeName', {
                       required: 'This is required',
@@ -90,7 +103,7 @@ const NewEmploee = () => {
                 <div className="personal-info-input mb-3.5">
                   <label
                     htmlFor="date"
-                    className="block h-fit  font-medium text-gray-900 mb-1 label"
+                    className="block h-fit text-sm font-medium text-red-600 mb-1 label"
                   >
                     Start Date
                   </label>
@@ -98,7 +111,7 @@ const NewEmploee = () => {
                     type="date"
                     id="date"
 
-                    className="muted border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 pl-6"
+                    className="muted border border-gray-300  text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 pl-6"
                     placeholder="20/03/2020"
                      {...register("date", {
                       required: 'This is required',
@@ -115,14 +128,14 @@ const NewEmploee = () => {
                 <div className="personal-info-input input-margin mb-3.5 xl:mb-0">
                   <label
                     htmlFor="phone"
-                    className="block h-fit  font-medium text-gray-900 mb-1 label"
+                    className="block h-fit text-sm font-medium text-red-600 mb-1 label"
                   >
                     Phone
                   </label>
                   <input
                     type="text"
                     id="phone"
-                    className=" border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
+                    className=" border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
                     
                     {...register("phone")}
                   />
@@ -130,14 +143,14 @@ const NewEmploee = () => {
                 <div className="personal-info-input mb-3.5 xl:mb-0">
                   <label
                     htmlFor="email"
-                    className="block h-fit  font-medium text-gray-900 mb-1 label"
+                    className="block h-fit text-sm font-medium text-red-600 mb-1 label"
                   >
                      Email
                   </label>
                   <input
                     type="email"
                     id="email"
-                    className=" border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                    className=" border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                     placeholder="Email"
                     
                     {...register("email", {
@@ -163,14 +176,14 @@ const NewEmploee = () => {
               <div className=" block">
                 <label
                   htmlFor="office"
-                  className="block h-fit  text-gray-900  label"
+                  className="block h-fit text-sm font-medium text-red-600  label"
                 >
                   Office
                 </label>
               </div>
               <select
                 id="office"
-                className=" muted   border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                className=" muted   border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                 {...register("office")}
               >
                 <option  value="">Name</option>
@@ -184,7 +197,7 @@ const NewEmploee = () => {
                 <div className="block">
                   <label
                     htmlFor="department"
-                    className="block h-fit  text-gray-900 mb-1 label"
+                    className="block h-fit text-sm font-medium text-red-600 mb-1 label"
                   >
                     Department
                   </label>
@@ -192,7 +205,7 @@ const NewEmploee = () => {
                 <select
                   id="department"
                   
-                  className="muted  border border-gray-300 text-gray-900  text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="muted  border border-gray-300 text-red-600  text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register('department', {
                     required: 'This is required',
                 })}
@@ -215,14 +228,14 @@ const NewEmploee = () => {
                 <div className=" block">
                   <label
                     htmlFor="Attendence Profile"
-                    className=" block h-fit  text-gray-900 mb-1 label"
+                    className=" block h-fit text-sm font-medium text-red-600 mb-1 label"
                   >
                     Attendence Profile
                   </label>
                 </div>
                 <select
                   id="Attendence Profile"
-                  className="muted w-full border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="muted w-full border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("empCase")}
                 >
                   <option value="">Select</option>
@@ -238,14 +251,14 @@ const NewEmploee = () => {
                 <div className="block">
                   <label
                     htmlFor="Role"
-                    className="block h-fit  text-gray-900 mb-1 label"
+                    className="block h-fit text-sm font-medium text-red-600 mb-1 label"
                   >
                     Role
                   </label>
                 </div>
                 <select
                   id="Role"
-                  className="muted w-full  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block   py-1 px-6"
+                  className="muted w-full  border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block   py-1 px-6"
                   {...register("role")}
                 >
                   <option value="">Select</option>
@@ -259,7 +272,7 @@ const NewEmploee = () => {
                 <div className=" block ">
                   <label
                     htmlFor="Position"
-                    className=" block h-fit  text-gray-900 mb-1 label "
+                    className=" block h-fit text-sm font-medium text-red-600 mb-1 label "
                   >
                     Position
                   </label>
@@ -268,7 +281,7 @@ const NewEmploee = () => {
                 <select
                   id="Position"
                   
-                  className="muted w-full  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="muted w-full  border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register('Position', {
                     required: 'This is required',
                 })}
@@ -288,14 +301,14 @@ const NewEmploee = () => {
                 <div className=" block">
                   <label
                     htmlFor="Direct Manger"
-                    className="block h-fit  text-gray-900 mb-1 label"
+                    className="block h-fit text-sm font-medium text-red-600 mb-1 label"
                   >
                     Direct Manger
                   </label>
                 </div>
                 <select
                   id="Direct Manger"
-                  className="muted w-full  border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
+                  className="muted w-full  border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                   {...register("manger")}
                 >
                   <option value="">Select</option>
@@ -324,7 +337,7 @@ const NewEmploee = () => {
               </div>
               <label
                 htmlFor="home"
-                className="ml-2  text-gray-900 dark:text-gray-300 text-sm font-bold text"
+                className="ml-2 text-sm font-medium  dark:text-gray-300 text-sm font-bold text"
               >
                 Allow employee to work from home
               </label>

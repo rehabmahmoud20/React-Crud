@@ -3,13 +3,14 @@ import { FiSearch } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { search } from "../../Redux/DataSlice";
 
-const Search = () => {
+const Search = ({handleSearch,value}) => {
   const [searchVal, setsearchVal] = useState('');
   const dispatch = useDispatch();
 
   const empSearch = (e) => {
-    setsearchVal(e.target.value)
-    dispatch(search(e.target.value));
+    // setsearchVal(e.target.value)
+    // dispatch(search(e.target.value));
+    handleSearch(e.target.value)
   };
 
   return (
@@ -26,7 +27,7 @@ const Search = () => {
           </div>
           <input
             onChange={empSearch}
-            value={searchVal}
+            value={value}
             type="search"
             id="default-search"
             className="w-full block py-1 border border-gray-300 text-gray-900 text-sm rounded-lg w-full focus:ring-blue-500 focus:border-blue-500 block   px-10 "
