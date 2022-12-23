@@ -86,3 +86,10 @@ body {
   outline: '1px solid #dadde9',
 
 }
+
+.main-height{
+  height: 50vh;
+}
+.image-height{
+  height:185px
+}

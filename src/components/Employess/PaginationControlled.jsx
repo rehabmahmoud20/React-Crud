@@ -3,8 +3,8 @@ import Typography from '@mui/material/Typography';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
-export default function PaginationControlled({empPerPage,totalEmp,handle}) {
-  const [page, setPage] = React.useState(3);
+export default function PaginationControlled({empPerPage,totalEmp,handle,currentPage}) {
+  const [page, setPage] = React.useState(1);
   let pageNumbers = 0;
 
   for (let i = 1; i <= Math.ceil(totalEmp / empPerPage); i++) {
@@ -21,7 +21,7 @@ export default function PaginationControlled({empPerPage,totalEmp,handle}) {
     
     <Stack spacing={2}>
       {/* <Typography>Page: {page}</Typography> */}
-     <Pagination count={pageNumbers} defaultPage={page} page={page} onChange={handleChange} />
+     <Pagination count={pageNumbers} page={currentPage} onChange={handleChange} />
     </Stack>
   );
 }

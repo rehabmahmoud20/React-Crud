@@ -20,11 +20,10 @@ class App extends React.Component {
         </div>
         <div className="main-bg w-full mx-auto  h-screen overflow-auto ">
           <NavbarComponent />
-          <div className=" flex mb-12 px-1 md:px-4 lg:px-9">
+          {/* <div className=" flex mb-12 px-1 md:px-4 lg:px-9"> */}
             {/* <Search /> */}
-            <NewEmploee  />
-
-          </div>
+            {/* <NewEmploee  /> */}
+          {/* </div> */}
 
           <EmployeeList />
         </div>

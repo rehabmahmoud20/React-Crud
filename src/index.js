@@ -16,6 +16,7 @@ const client = new ApolloClient({
         // The RootQueryFragment can only match if the cache knows the __typename
         // of the root query object.
         queryType: true,
+        merge:true
       },
     },
   }),

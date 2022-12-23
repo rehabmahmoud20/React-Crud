@@ -37,9 +37,12 @@ body > div:nth-child(3) > div{
     justify-content: center;
     align-items: center;
     width: 24%; 
-    height: 112px;
+    /* height: 112px; */
   }
  
+}
+.personal-info-data{
+  margin-bottom: 18px;
 }
 /* 257 */
 .image-container p {
@@ -118,17 +121,19 @@ input[type='checkbox']:checked{
 
 /*add new button */
 
-#root > section > div.main-bg.w-full.mx-auto.h-screen.overflow-auto > div > div > button > span{
-  font-size: 13px ;
-  font-family: 'Roboto', sans-serif;
-
-}
-#root > section > div.main-bg.w-full.mx-auto.h-screen.overflow-auto > div > div > button{
+#root > section > div.main-bg.w-full.mx-auto.h-screen.overflow-auto > main > div.flex.mb-12.px-1.md\:px-4.lg\:px-9 > div > button{
   height: 30px;
   width: 101px;
   background-color: #2764ac;
   border-radius: 5px;
 }
+#root > section > div.main-bg.w-full.mx-auto.h-screen.overflow-auto > main > div.flex.mb-12.px-1.md\:px-4.lg\:px-9 > div > button > span{
+  font-size: 13px ;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+
 
 /* form btn */
 .btn {

@@ -10,6 +10,36 @@ mutation removeUserFun( $id: ID!,$password: String!){
         message
     }
 }
+`,
+addUser : gql`
+mutation add($input:StoreUserWithUserSalaryConfigInput){
+    store_user_with_user_salary_config(input:$input){
+        id
+       name
+       email
+       position{name}
+       department {name}
+       offices{name}
+       joining_date
+       manager{name}
+       copied_managers{name}
+    }
+}
+`
+,editUser :gql`
+mutation edit($input:ExtraUserInput!){
+    update_user(input:$input){
+        id
+        name
+        email
+        position{name}
+        department {name}
+        offices{name}
+        joining_date
+        manager{name}
+        copied_managers{name}
+    }
+}
 
 `
 }
