@@ -4,10 +4,7 @@
   --third-color: #27b40c;
   --muted: #8997a4;
 }
-/* body{
-  background-color: #F7F8F9;
-
-} */
+/* =============================================== global classes ============================================================*/
 .main-bg {
   background-color: #f7f8f9;
 }
@@ -43,6 +40,7 @@
 body {
   overflow-y: hidden;
 }
+/* scroll bar style */
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -58,6 +56,7 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--muted);
 }
+/* main content media querry */
 @media screen and (min-width: 950px) {
   .main-content {
     grid-template-columns: repeat(2, 1fr);
@@ -80,7 +79,7 @@ body {
   }
 }
 
-/* tooltip */
+/* tooltip  custum styles*/
 .MuiTooltip-arrow.css-kudwh-MuiTooltip-arrow{
   color: #dadde9 !important;
   outline: '1px solid #dadde9',
@@ -92,4 +91,14 @@ body {
 }
 .image-height{
   height:185px
+}
+/* custom thumb style */
+
+body > div:nth-child(3) > div > div > div > div > form > div.lg\:flex.personal-info-data > div.uppercase.border.border-dashed.w-full.image-container.mb-3.xl\:mb-0 > section > div > div > div{
+  width:50%;
+  margin:  0 auto
+}
+/*  */
+body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-icon.swal2-success.swal2-icon-show{
+  border: none;
 }

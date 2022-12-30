@@ -1,204 +1,347 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+
 import "./NewEmploeeData.css";
 import mutations from "../../mutations";
-
 import Previews from "./Previews";
 import { Spinner } from "flowbite-react";
 
-
-
-
 // modal imports
-import { Modal, Button } from "flowbite-react";
+import { Modal } from "flowbite-react";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 import { useForm } from "react-hook-form";
 
 import { handleEditOrAdd, setShowModalVal } from "../../Redux/DataSlice";
 
-import { ATTEND_PROFILE, GET_EMP,SINGLE_USER_QUERY } from '../../queries'
+import { FORM_AND_SINGLEEMP_DATA} from "../../queries";
 
 import { useLazyQuery, useMutation } from "@apollo/client";
 
-
-
 const NewEmploee = (props) => {
-
   const flag = useSelector((state) => state.employeData.showModal);
   const editOrAdd = useSelector((state) => state.employeData.editOrAdd);
-  // console.log(editOrAdd)
+  // requet to set image
+  const [imgRequest,setImgReq] = useState(false)
+  const handleImgReq = (val) =>{
+    setImgReq(val)
+  }
 
   const dispatch = useDispatch();
-// MANGER
-  const [manges, setmanges] = useState('')
-  const [mange, setmanger] = useState('')
-// COPPIED MANGER
-  const [coppiedMangers, setCoppied] = useState([])
-  const [selectedVal ,setSelected] = useState(false)
+  const [editedImage, setEditedImage] = useState(null);
+
+  // MANGER
+  const [manges, setmanges] = useState("");
+  // COPPIED MANGER
+  const [coppiedMangers, setCoppied] = useState([]);
   // validation
-  const [valiatinFlag, setValidatinFlag] = useState(true)
-  const [email, setEmailError] = useState('')
-  const [phoneError, setPhoneError] = useState('')
-  const [nameError, setNameError] = useState('')
-  const [defaultVals,setDefaultVals] = useState({
-    name:'',
-    phone:'',
-    position_id:"",
-    starts_at:"",
-    department_id:"",
-    email:"",
-    att_profile_id:"",
-    office_id:"",
-    phone:"", 
-    role:"",
-    copied_managers:[],
-    manager_id:''
-  })
+  const [valiatinFlag, setValidatinFlag] = useState(true);
+  const [validationErrs, setValidationErrors] = useState({
+    email: "",
+    phoneError: "",
+    nameError: "",
+  });
+  const [imageFile, setImageFile] = useState(null);
 
-  // GET SINGLE EMP DATA
-  const [getSingleUser,{data:singleuserData,loading:singleUseLoad}] =useLazyQuery(SINGLE_USER_QUERY,{
-    variables: {
-      id:props.id
-    }
-  })
-  useEffect((()=>{
-      console.log(props.id)
-      getSingleUser()
-  }),[editOrAdd === 'edit'])
-  useEffect((()=>{
-    if ( singleUseLoad === false && singleuserData ) {
-     console.log(singleuserData.user)
-    
-  
-    //  setDefaultVals((prev)=>{
-    // return  {...prev,name:singleuserData.user.name}
-    //  })
-     reset({...defaultVals,name:singleuserData.user.name,email:singleuserData.user.email,phone:singleuserData.user.phone,
-      starts_at:singleuserData.user.starts_at,
-      office_id:singleuserData.user.office.id,
-      department_id:singleuserData.user.department.id,
-      att_profile_id:singleuserData.user.attendance_profile.id,
-      position_id:singleuserData.user.position.id,
-      manager_id:singleuserData.user.manager.id,
-      copied_managers:['19'],
-    })
-     console.log(defaultVals)
-     console.log(singleuserData.user)
-    }
-  }),[singleUseLoad,singleuserData])
-  // singleuserData.user.copied_managers[1].id
-// ADD EMP MUTATION
-  const [getOpts, { data: attendProfile, loading }] = useLazyQuery(ATTEND_PROFILE)
+  const handleImage = (file) => {
+    setImageFile(file);
+  };
 
-  const { addUser,editUser } = mutations;
-  const [addUserMutationFun, { loading: addLoad, onCompleted, error: dderror }] = useMutation(addUser, {
-    refetchQueries: [
-      {
-        query: GET_EMP,
-        variables: {
-          currentPage: props.page
+  const [defaultVals] = useState({
+    name: "",
+    phone: "",
+    position_id: "",
+    starts_at: "",
+    department_id: "",
+    email: "",
+    att_profile_id: "",
+    office_id: "",
+    phone: "",
+    role: "",
+    copied_managers: [],
+    manager_id: "",
+    work_home: false,
+  });
+
+  // ADD EMP querry
+  const [getOpts, { data: formAndEmpData, loading }] = useLazyQuery(
+    FORM_AND_SINGLEEMP_DATA,
+    editOrAdd === "add"
+      ? {
+          variables: {
+            isEmp: false,
+            id: props.id,
+          },
+          fetchPolicy: "no-cache",
         }
-      },
-    ],
-    onCompleted: () => {
-      setValidatinFlag(true)
-      props.updateList()
-      dispatch(setShowModalVal(false))
-      reset()
-    },
-    onError(delError) {
-      setValidatinFlag(false)
-      setNameError(delError.graphQLErrors[0].extensions.validation["input.user_input.name"][0])
-      setEmailError(delError.graphQLErrors[0].extensions.validation["input.user_input.email"][0])
-      setPhoneError(delError.graphQLErrors[0].extensions.validation["input.user_input.phone"][0])
-
-    }
-  })
-
-  const [editUserMutationFun,{loading:editLoad}] = useMutation(editUser,{
-    onCompleted: () => {
-      // setValidatinFlag(true)
-      props.updateList()
-      dispatch(setShowModalVal(false))
-      reset()
-    }
-  })
+      : {
+          variables: {
+            isEmp: true,
+            id: props.id,
+          },
+          fetchPolicy: "no-cache",
+        }
+  );
   useEffect(() => {
     if (flag) {
-      getOpts()
+      getOpts();
     }
-  }, [flag])
+  }, [flag]);
+
   useEffect(() => {
-    if (loading === false && attendProfile) {
-      setmanges(attendProfile?.company_users?.data)
-      setCoppied(attendProfile?.company_users?.data)
-    }
-  }, [loading, attendProfile])
+    if (flag) {
+      if (formAndEmpData) {
+        setmanges(formAndEmpData?.company_users?.data);
+        setCoppied(formAndEmpData?.company_users?.data);
+        // handling coppied mangers
+        let filterdnewArr = formAndEmpData?.company_users?.data?.filter(
+          (e) => e?.id !== formAndEmpData?.user?.manager?.id
+        );
 
-  ////////////////////////////////////////
-// handle manger
-  const handleselect = (event) => {
-    setmanger(event.target.value)
-    console.log(event.target.value)
-    let newArr = manges.filter(e => {
-      return e.id !== event.target.value
-    })
-  
-    setCoppied(newArr)
+        setCoppied(filterdnewArr);
+        // ===========================================================================================================================================================
+        // coppied mangers ids  handling  mangers
+        const coppiedIds = formAndEmpData?.user?.copied_managers.map(
+          (e) => e.id
+        );
 
-  }
-  // handleCoppied
-  const handleCoppied = (e) => {
-    let options = e.target.selectedOptions;
-    let values = [];
-    for(let i = 0; i < options.length;i++){
-        values.push(options[i].value)
-    }
- 
-    let newArr = manges.filter(e => {
-      return !values.includes(e.id)
-    })
-    setmanges(newArr)
+        let newArr = formAndEmpData?.company_users?.data.filter((e) => {
+          return !coppiedIds?.includes(e.id);
+        });
+        setmanges(newArr);
+        // work from home
+        let canWorkHome = false;
+        if (formAndEmpData?.user?.can_work_home) {
+          canWorkHome = true;
+        } else {
+          canWorkHome = false;
+        }
+        
+        if (editOrAdd === "edit") {
+          // handling edit image
+          if(!formAndEmpData?.user?.face?.path){
+            setEditedImage('');
+          }else{
+            const orginalPath = formAndEmpData?.user?.face?.path;
+            const newPath = "http://mawared.pro" + orginalPath?.slice(28);
+            setEditedImage(newPath);
+          }
 
-  }
-  // edit user
-const editUserFunc = (data) =>{
-  const { position_id, starts_at, department_id, email, att_profile_id, name, office_id, phone, role,manager_id,copied_managers } = data
-  editUserMutationFun({
-    variables:{
-      input :{
-        user_input: {
-          id:props.id,
-          name: name,
-          phone: phone,
-          email: email,
-          starts_at: starts_at,
-          office_id: office_id,
-          department_id: department_id,
-          role_id: role,
-          att_profile_id: att_profile_id,
-          position_id: position_id,
-          manager_id: manager_id,
-          copied_managers: copied_managers,
-          can_work_home: 1,
-          company_id: "1",
-          has_credentials: 1,
-          max_homeDays_per_week: 1,
-          can_ex_days: 0,
-          home_days: [],
-          flexible_home: 0,
+          reset({
+            ...defaultVals,
+            name: formAndEmpData?.user?.name,
+            email: formAndEmpData?.user?.email,
+            phone: formAndEmpData?.user?.phone,
+            starts_at: formAndEmpData?.user?.starts_at,
+            office_id: formAndEmpData?.user?.office?.id,
+            department_id: formAndEmpData?.user?.department?.id,
+            att_profile_id: formAndEmpData?.user.attendance_profile?.id,
+            position_id: formAndEmpData?.user.position?.id,
+            manager_id: formAndEmpData?.user.manager?.id,
+            copied_managers: coppiedIds,
+            work_home: canWorkHome,
+          });
         }
       }
     }
-  })
-}
+  }, [formAndEmpData, flag]);
+  // fun to handle oncomplete mutation 
+  const onCopmMutFun =(val)=>{
+    setValidatinFlag(true);
+    setValidationErrors((prev) => {
+      return {
+        ...prev,
+        phoneError: "",
+        nameError: "",
+        email: "",
+      };
+    });
+    props.updateList();
+    dispatch(setShowModalVal(false));
+    reset({ ...defaultVals });
+    //s w e e t   a l e r t
+    
+    Swal.fire({
+      title: `Employee ${val} succesfully`,
+      timer: 2000,
+      icon: 'success',
+      timerProgressBar: false,
+      showConfirmButton:false,
+ 
+    })
+    
+  }  //========================================================================== add user mutation ================================================================================
+  const { addUser, editUser } = mutations;
+  const [addUserMutationFun, { loading: addLoad }] =
+    useMutation(addUser, {
+      fetchPolicy: "no-cache",
+      onCompleted: () => {
+        onCopmMutFun('Added')
+      },
+      onError(delError) {
+        setValidatinFlag(false);
+        setValidationErrors((prev) => {
+          return {
+            ...prev,
+            nameError:
+              delError?.graphQLErrors[0]?.extensions?.validation?.[
+                "input.user_input.name"
+              ]?.[0],
+            phoneError:
+              delError?.graphQLErrors[0]?.extensions?.validation?.[
+                "input.user_input.phone"
+              ]?.[0],
+            email:
+              delError?.graphQLErrors[0]?.extensions?.validation?.[
+                "input.user_input.email"
+              ]?.[0],
+          };
+        });
+      },
+    });
+  //========================================================================== edit user mutation ================================================================================
 
+  const [editUserMutationFun, { loading: editLoad }] = useMutation(editUser, {
+    fetchPolicy: "no-cache",
+    onCompleted: () => {
+      onCopmMutFun('Edited')
+      setImgReq(false)
+    },
+    onError(delError) {
+      setValidatinFlag(false);
+      setValidationErrors((prev) => {
+        return {
+          ...prev,
+          nameError:
+            delError?.graphQLErrors[0]?.extensions?.validation?.[
+              "input.user_input.name"
+            ]?.[0],
+          phoneError:
+            delError?.graphQLErrors[0]?.extensions?.validation?.[
+              "input.user_input.phone"
+            ]?.[0],
+          email:
+            delError?.graphQLErrors[0]?.extensions?.validation?.[
+              "input.user_input.email"
+            ]?.[0],
+        };
+      });
+    },
+  });
 
+  ////////////////////////////////////////
+  const handleEditedImg = (val) => {
+    setEditedImage(val);
+    setImageFile(val);
+  };
+  // handle manger
+  const handleMangerArr = (event) => {
+    let newArr = formAndEmpData?.company_users?.data.filter((e) => {
+      return e.id !== event.target.value;
+    });
 
-  // add user
+    setCoppied(newArr);
+  };
+  // handle Coppied mangers 
+  const handleCoppied = (e) => {
+    let options = e.target.selectedOptions;
+
+    let values = [];
+    for (let i = 0; i < options.length; i++) {
+      values.push(options[i].value);
+    }
+
+    let newArr = formAndEmpData?.company_users?.data.filter((e) => {
+      return !values.includes(e.id);
+    });
+
+    setmanges(newArr);
+  };
+  //========================================================================== handle edit user mutation fun ================================================================================
+
+  const editUserFunc = (data) => {
+    const {
+      position_id,
+      starts_at,
+      department_id,
+      email,
+      att_profile_id,
+      name,
+      office_id,
+      phone,
+      role,
+      manager_id,
+      copied_managers,
+      work_home,
+    } = data;
+    // handle work from home
+    let homeWork;
+    if (work_home) {
+      homeWork = 1;
+    } else {
+      homeWork = 0;
+    }
+    editUserMutationFun({
+      variables: {
+        input: {
+          user_input: {
+            id: props.id,
+            name: name,
+            phone: phone,
+            email: email,
+            starts_at: starts_at,
+            office_id: office_id,
+            department_id: department_id,
+            role_id: role,
+            att_profile_id: att_profile_id,
+            position_id: position_id,
+            manager_id: manager_id,
+            copied_managers: copied_managers,
+            can_work_home: homeWork,
+            company_id: "1",
+            has_credentials: 1,
+            max_homeDays_per_week: 1,
+            can_ex_days: 0,
+            home_days: [],
+            flexible_home: 0,
+            ...(imgRequest && {
+              user_image: imageFile,
+            }),
+
+            
+          },
+        },
+      },
+    });
+  };
+
+  //========================================================================== handle add user mutation fun ================================================================================
   const addPerson = (data) => {
-    const { position_id, starts_at, department_id, email, att_profile_id, name, office_id, phone, role,manager_id,copied_managers } = data
+    const {
+      position_id,
+      starts_at,
+      department_id,
+      email,
+      att_profile_id,
+      name,
+      office_id,
+      phone,
+      role,
+      manager_id,
+      copied_managers,
+      work_home,
+    } = data;
+
+    // handle work from home
+    let homeWork;
+    if (work_home) {
+      homeWork = 1;
+    } else {
+      homeWork = 0;
+    }
+
     addUserMutationFun({
       variables: {
         input: {
@@ -214,59 +357,54 @@ const editUserFunc = (data) =>{
             position_id: position_id,
             manager_id: manager_id,
             copied_managers: copied_managers,
-            can_work_home: 1,
+            can_work_home: homeWork,
             company_id: "1",
             has_credentials: 1,
             max_homeDays_per_week: 1,
             can_ex_days: 0,
             home_days: [],
             flexible_home: 0,
+            user_image: imageFile,
           },
           user_salary_config_input: {
             salary_config: {
-              start_at: "22-10-2022"
-            }
-          }
-        }
-      }
-    })
-  }
- 
+              start_at: starts_at,
+            },
+          },
+        },
+      },
+    });
+  };
   //   rect hook form
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ mode: "onChange",
-defaultValues:{
-...defaultVals
-}
-});
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      ...defaultVals,
+    },
+  });
   return (
     <React.Fragment>
-     
-      <Modal
-        show={flag}
-        popup={true}
-     
-      >
-        {
-          loading ? (<div className="text-center main-height flex justify-center items-center  w-full">
+      <Modal show={flag} popup={true}>
+        {loading ? (
+          <div className="text-center main-height flex justify-center items-center  w-full">
             <Spinner aria-label="Center-aligned spinner example" />
-          </div>) : (<Modal.Body className="modal-width">
-            <p className="uppercase form-title main-color ">new employee</p>
+          </div>
+        ) : (
+          <Modal.Body className="modal-width">
+            <p className="uppercase form-title main-color "> {editOrAdd === "add" ? (<p>new employee</p>): (<p>edit employee</p>)}</p>
 
             <form
               onSubmit={handleSubmit((data) => {
-                if (editOrAdd === 'add') {
-                  addPerson(data)
+                if (editOrAdd === "add") {
+                  addPerson(data);
                 } else {
-                  editUserFunc(data)
-                  console.log('edit')
+                  editUserFunc(data);
                 }
-
-
               })}
             >
               {/* ============================================ personal info data ====================================================================== */}
@@ -276,19 +414,25 @@ defaultValues:{
                 </p>
               </div>
               <div className="lg:flex personal-info-data">
-
-                <div
-                  className="uppercase  border  border-dashed w-full  pb-8 pt-12 image-container  mb-3 xl:mb-0"
-                >
-                  {/* image drag and drop */}
-                  <Previews />
+                <div className="uppercase  border  border-dashed w-full   image-container  mb-3 xl:mb-0 relative">
+                  {/* i m a g e   d r a g   a n d    d r o p */}
+                  <Previews
+                    handleImage={handleImage}
+                    editedImage={editedImage}
+                    handleEditedImg={handleEditedImg}
+                    handleImgReq={handleImgReq}
+                  />
                 </div>
+             
                 <div className="lg:grid lg:grid-cols-2  lg:gap-x-6 personal-info">
+                  {/*  n a m e */}
                   <div className="personal-info-input input-margin mb-3.5">
                     <label
                       htmlFor="name"
-                      className={"block h-fit text-sm font-medium  mb-1 label " + (nameError && 'text-red-600')}
-
+                      className={
+                        "block h-fit text-sm font-medium  mb-1 label " +
+                        (validationErrs?.nameError && "text-red-600")
+                      }
                     >
                       Name
                     </label>
@@ -296,22 +440,19 @@ defaultValues:{
                       type="text"
                       id="name"
                       placeholder=" "
-                     
                       className="  border border-gray-300 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
-
-                      {...register('name',
+                      {...register(
+                        "name"
                         
                       )}
-
                     />
                     {!valiatinFlag && (
                       <p className="mt-0.5 text-sm text-red-600 dark:text-red-500">
-                        {nameError}
+                        {validationErrs?.nameError}
                       </p>
                     )}
                   </div>
-
-
+                  {/* d a t e */}
                   <div className="personal-info-input mb-3.5">
                     <label
                       htmlFor="starts_at"
@@ -322,24 +463,18 @@ defaultValues:{
                     <input
                       type="date"
                       id="starts_at"
-
                       className="muted border border-gray-300  text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 pl-6"
-                      placeholder="20/03/2020"
-                      {...register("starts_at",
-                        //  {
-                        //   required: 'This is required',
-                        // }
-                      )
-                      }
+                      {...register("starts_at")}
                     />
-
                   </div>
-
-
+                 {/* p h o n e */}
                   <div className="personal-info-input input-margin mb-3.5 xl:mb-0">
                     <label
                       htmlFor="phone"
-                      className={"block h-fit text-sm font-medium  mb-1 label " + (phoneError && 'text-red-600')}
+                      className={
+                        "block h-fit text-sm font-medium  mb-1 label " +
+                        (validationErrs?.phoneError && "text-red-600")
+                      }
                     >
                       Phone
                     </label>
@@ -347,20 +482,25 @@ defaultValues:{
                       type="text"
                       id="phone"
                       className=" border border-gray-300  text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full py-1 px-6 "
-
-                      {...register("phone")}
+                      {...register(
+                        "phone"
+                       
+                      )}
                     />
                     {!valiatinFlag && (
                       <p className="mt-0.5 text-sm text-red-600 dark:text-red-500">
-                        {phoneError}
+                        {validationErrs?.phoneError}
                       </p>
                     )}
                   </div>
-
+                  {/*  e m a i l */}
                   <div className="personal-info-input mb-3.5 xl:mb-0">
                     <label
                       htmlFor="email"
-                      className={"block h-fit text-sm font-medium  mb-1 label " + (email && 'text-red-600')}
+                      className={
+                        "block h-fit text-sm font-medium  mb-1 label " +
+                        (validationErrs?.email && "text-red-600")
+                      }
                     >
                       Email
                     </label>
@@ -369,29 +509,26 @@ defaultValues:{
                       id="email"
                       className=" border border-gray-300 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
                       placeholder="Email"
-
-                      {...register("email",
-                        // {
-                        //   required: 'This is required',
-                        // }
-                      )
-                      }
+                      {...register(
+                        "email"
+                       
+                      )}
                     />
                     {!valiatinFlag && (
                       <p className="mt-0.5 text-sm text-red-600 dark:text-red-500">
-                        {email}
+                        {validationErrs.email}
                       </p>
                     )}
                   </div>
                 </div>
               </div>
-              {/* ============================================ office info data ====================================================================== */}
+              {/* =============================================================== office info data ====================================================================== */}
               <div className="info-title relative">
                 <p className="font-bold main-color after-title  mb-3.5 ">
                   Office Info
                 </p>
               </div>
-              {/* office */}
+              {/* o f f i ce */}
               <div className="mb-2.5">
                 <div className=" block">
                   <label
@@ -407,38 +544,40 @@ defaultValues:{
                   {...register("office_id")}
                 >
                   <option value="">Name</option>
-                  <option value={attendProfile?.company_offices?.data[0]?.id} >{attendProfile?.company_offices?.data[0]?.name}</option>
+                  <option value={formAndEmpData?.company_offices?.data[0]?.id}>
+                    {formAndEmpData?.company_offices?.data[0]?.name}
+                  </option>
                 </select>
               </div>
               <div className=" xl:grid xl:grid-cols-2 xl:gap-x-8 ">
-                {/* department */}
+                {/* d e p a r t m e n t */}
                 <div className="mb-2.5">
                   <div className="block">
                     <label
                       htmlFor="department"
-                      className={"block h-fit text-sm font-medium  mb-1 label " + (errors.name?.type === 'required' && 'text-red-600')}
+                      className={
+                        "block h-fit text-sm font-medium  mb-1 label " +
+                        (errors.name?.type === "required" && "text-red-600")
+                      }
                     >
                       Department
                     </label>
                   </div>
                   <select
                     id="department"
-
                     className="muted  border border-gray-300 text-red-600  text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                    {...register('department_id',
-                 
-                    )
-                    }
+                    {...register("department_id")}
                   >
                     <option value="">Select</option>
 
-                    {attendProfile?.company_departments?.data.map((e) => (
-                      <option value={e.id} key={e.id}>{e.name}</option>
+                    {formAndEmpData?.company_departments?.data.map((e) => (
+                      <option value={e.id} key={e.id}>
+                        {e.name}
+                      </option>
                     ))}
                   </select>
-
                 </div>
-                {/* Attendence Profile */}
+                {/* A t t e n d e n c e     P r o f i l e */}
                 <div className="mb-2.5">
                   <div className=" block">
                     <label
@@ -454,40 +593,51 @@ defaultValues:{
                     {...register("att_profile_id")}
                   >
                     <option value="">Select</option>
-                    {attendProfile?.attendance_profiles?.data.map((e) => (
-                      <option value={e.id} key={e.id}>{e.name}</option>
+                    {formAndEmpData?.attendance_profiles?.data.map((e) => (
+                      <option value={e.id} key={e.id}>
+                        {e.name}
+                      </option>
                     ))}
                   </select>
                 </div>
-                {/* Role */}
-                <div className="mb-2.5">
-                  <div className="block">
-                    <label
-                      htmlFor="Role"
-                      className="block h-fit text-sm font-medium  mb-1 label"
+                {/* R o l e */}
+                {editOrAdd === "add" && (
+                  <div className="mb-2.5">
+                    <div className="block">
+                      <label
+                        htmlFor="Role"
+                        className="block h-fit text-sm font-medium  mb-1 label"
+                      >
+                        Role
+                      </label>
+                    </div>
+                    <select
+                      id="Role"
+                      className="muted w-full  border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block   py-1 px-6"
+                      {...register("role")}
                     >
-                      Role
-                    </label>
+                      <option value="">Select</option>
+
+                      {formAndEmpData?.profile?.company?.currentSubscription?.plan?.roles.map(
+                        (e) => (
+                          <option value={e.id} key={e.id}>
+                            {e.name}
+                          </option>
+                        )
+                      )}
+                    </select>
                   </div>
-                  <select
-                    id="Role"
-                    className="muted w-full  border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block   py-1 px-6"
-                    {...register("role")}
-                  >
-                    <option value="">Select</option>
+                )}
 
-                    {attendProfile?.profile?.company?.currentSubscription?.plan?.roles.map((e) => (
-                      <option value={e.id} key={e.id}>{e.name}</option>
-                    ))}
-
-                  </select>
-                </div>
-                {/* Position */}
+                {/* P o s i t i o n */}
                 <div className="mb-2.5">
                   <div className=" block ">
                     <label
                       htmlFor="Position"
-                      className={"block h-fit text-sm font-medium  mb-1 label " + (errors.name?.type === 'required' && 'text-red-600')}
+                      className={
+                        "block h-fit text-sm font-medium  mb-1 label " +
+                        (errors.name?.type === "required" && "text-red-600")
+                      }
                     >
                       Position
                     </label>
@@ -495,28 +645,18 @@ defaultValues:{
 
                   <select
                     id="Position"
-
                     className="muted w-full  border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                    {...register('position_id'
-                      // , {
-                      //   required: 'This is required',
-                      // }
-                    )
-                    }
+                    {...register("position_id")}
                   >
                     <option value="">Select</option>
-                    {attendProfile?.company_positions?.data.map((e) => (
-                      <option value={e.id} key={e.id}>{e.name}</option>
+                    {formAndEmpData?.company_positions?.data.map((e) => (
+                      <option value={e.id} key={e.id}>
+                        {e.name}
+                      </option>
                     ))}
-
                   </select>
-                  {/* {errors.Position?.type === 'required' && (
-                  <p className="mt-0.5 text-sm text-red-600 dark:text-red-500">
-                    {errors.Position.message}
-                  </p>
-                )} */}
                 </div>
-                {/* Direct Manger */}
+                {/* D i r e c t     M a n g e r */}
                 <div className="mb-2.5">
                   <div className=" block">
                     <label
@@ -529,18 +669,20 @@ defaultValues:{
                   <select
                     id="Direct Manger"
                     className="muted w-full  border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                  {...register("manager_id")}
-                  onChange={handleselect}
-
+                    {...register("manager_id")}
+                    onChange={handleMangerArr}
                   >
                     <option value="">Select</option>
 
-                    {manges.length > 0 && manges.map((e) => (
-                      <option value={e.id} key={e.id}>{e.name}</option>
-                    ))}
+                    {manges.length > 0 &&
+                      manges.map((e) => (
+                        <option value={e.id} key={e.id}>
+                          {e.name}
+                        </option>
+                      ))}
                   </select>
                 </div>
-                {/* coppied Manger */}
+                {/* c o p p i e d   M a n g e r */}
                 <div className="mb-2.5">
                   <div className=" block">
                     <label
@@ -551,19 +693,20 @@ defaultValues:{
                     </label>
                   </div>
                   <select
-                    
                     multiple
                     id="Direct Manger"
                     className="muted w-full  border border-gray-300 text-red-600 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full  py-1 px-6"
-                  {...register("copied_managers")}
-                  onChange={handleCoppied}
-
+                    {...register("copied_managers")}
+                    onChange={handleCoppied}
                   >
                     <option value="">Select</option>
 
-                    {coppiedMangers.length > 0 && coppiedMangers.map((e) => (
-                      <option  value={e.id} key={e.id}>{e.name}</option>
-                    ))}
+                    {coppiedMangers.length > 0 &&
+                      coppiedMangers.map((e) => (
+                        <option value={e.id} key={e.id}>
+                          {e.name}
+                        </option>
+                      ))}
                   </select>
                 </div>
               </div>
@@ -582,6 +725,7 @@ defaultValues:{
                     type="checkbox"
                     value=""
                     className="muted w-4 h-4 bg-gray-50 rounded border border-gray-300  focus:ring-0 focus:ring-cyan-100"
+                    {...register("work_home")}
                   />
                 </div>
                 <label
@@ -596,11 +740,18 @@ defaultValues:{
                   className="rounded text-white bg-danger  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium    btn  "
                   onClick={() => {
                     dispatch(setShowModalVal(false));
-                    setEmailError('')
-                    setPhoneError('')
-                    setNameError('')
-                    dispatch(handleEditOrAdd(''))
-                    reset({...defaultVals})
+                    setValidationErrors((prev) => {
+                      return {
+                        ...prev,
+                        phoneError: "",
+                        nameError: "",
+                        email: "",
+                      };
+                    });
+                    reset({ ...defaultVals });
+                    dispatch(handleEditOrAdd(""));
+                    dispatch(setShowModalVal(false));
+
                   }}
                 >
                   Cancel
@@ -609,22 +760,19 @@ defaultValues:{
                   type="submit"
                   className=" rounded text-white bg-main  focus:ring-3 focus:outline-none focus:ring-cyan-300 font-medium   btn "
                 >
-                  {
-                    addLoad|| editLoad ? <div className="text-center  flex justify-center items-center">
+                  {addLoad || editLoad ? (
+                    <div className="text-center  flex justify-center items-center">
                       <Spinner aria-label="Center-aligned spinner example" />
-                    </div> : (
-
-                      <p>save</p>
-                    )
-                  }
+                    </div>
+                  ) : (
+                    <p>save</p>
+                  )}
                   {/* Save */}
                 </button>
-
               </div>
             </form>
-          </Modal.Body>)
-        }
-
+          </Modal.Body>
+        )}
       </Modal>
     </React.Fragment>
   );

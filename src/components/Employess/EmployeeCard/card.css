@@ -5,16 +5,13 @@
 .card {
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.09);
 }
-.card-img {
-  /* width: 104px; */
-}
+
 
 .card-name {
   margin-bottom: 3px;
   line-height: 1.2;
   font-family: "Roboto", sans-serif;
   /* ellipsis */
-  /* width: 261px;; */
   width: 200px;;
 
   white-space: nowrap;
@@ -24,36 +21,8 @@
 .card-content p:not(:first-of-type) {
   font-family: "Lato", sans-serif;
 }
-.present,
-.absent,
-.weekend,
-.on-leave {
-  font-size: 11px;
-  /* margin-right: 132px; */
-  line-height: 1.18;
-  width: 57px;
-  height: 17px;
-  font-family: "Lato", sans-serif;
-}
-.present {
-  background-color: #dcf3d7;
-  color: var(--third-color);
-}
-.absent {
-  background-color: #ffe7e7;
-  color: #ff6a6a;
-}
-.weekend {
-  background-color: #dce6f2;
-  color: #2764ac;
-}
-.on-leave {
-  background-color: #eceef0;
-  color: #8997a4;
-}
-.card-content {
-  /* padding-left: 21px; */
-}
+
+
 .info-icon {
   background-color: #eaeef0;
 }
@@ -78,13 +47,6 @@
     /* ellipsis */
     width: 261px;;
   }
-  .present,
-.absent,
-.weekend,
-.on-leave {
-  margin-right: 132px;
-
-}
 .card-img {
   width: 104px;
 }

@@ -4,9 +4,7 @@ import { AiOutlineExclamation } from "react-icons/ai";
 
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-// import Button from '@mui/material/Button';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
-// import Typography from '@mui/material/Typography';
 
 
 const HtmlTooltip = styled(({ className, ...props }) => (
@@ -28,8 +26,6 @@ const HtmlTooltip = styled(({ className, ...props }) => (
 export default function CustomizedTooltips({employee}) {
   const { role,manager,offices,joining_date ,copied_managers  } = employee;
 
-
-
   return (
     <div>
       <HtmlTooltip arrow  title={<React.Fragment>
@@ -44,7 +40,9 @@ export default function CustomizedTooltips({employee}) {
            </div>
            <div>
              <div className="muted">  coppied manger :</div>
-              <div>{copied_managers[0]?.name}</div>
+             {copied_managers.map(e=>
+             ( <div key={e.id}>{e.name}</div>)
+             )}
            </div>
 
            <div>

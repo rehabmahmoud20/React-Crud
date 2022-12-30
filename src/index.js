@@ -7,9 +7,17 @@ import {Store} from './Redux/Store.js'
 import { Provider } from 'react-redux'
 // apollo
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-const token="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZWRiMWYxNzE2NTMzYzk4NmEwMGMxNzQ2MzllNDc5ZDM0ODMwMDVhMTU4N2VkZmU0OWZkNDExZmVjNmI0OTUxNzEyMmYxOGMzZWY3ZTllYTgiLCJpYXQiOjE2NzEyMDM5MjIuNTUyOTkxLCJuYmYiOjE2NzEyMDM5MjIuNTUyOTk2LCJleHAiOjE3MDI3Mzk5MjIuNTIyNDA2LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.cBn2lpTJ1OKk4BVEUQSlUKR0U0vq1fthUmyS8vN10G5TNS6YVsYGhACdBaNM7rBrIRQzj1DnoAUICRRzFM22moCq4vCxZ_hUhv9YOFMBxt8zTDuLabR0G2JCTq5nXn5mFrvDbG_0iuDbwTzAcHI9Szy9K71Jukk3ylZ7tsWOXSffdmfUYqSskBzzw_EZJRNxC8mF84aGYKlajLeuigyKRsogegcdpTeZJjGY-FWxH8bj3_xvQJBpXzBoONCb4WyYcyeiIplxV7dp00BsL3i1HnBL8Awv6PHXe74Gq6QQwLqEza7SLcx96LSvIFc8Tx8UzFwi1amX3yunXeaNGSa-GnN09vObIrvLImDK0PCePvI46uOa0yZwmRcapCP4gard4Y-2YKebyc9eZeVwZVtrZ-KY2SMxv7xkr4sYUE4ePRe4kgyrpKEzNqYbMb1UGBaeHXLc0KV_B-8Lbb2gCVu_ngBcxVV2n3WswNrj4N2nJIPD6p2IM74KMprKDAezBebbza7W1yK8QiSf4-VUeryqqDD2FzOXZf9oSyeGuptm8o9TMEYqmoj1ZLtX823hfhb5ZV5StrvZ1EafVPbYi-KJuiNPZ48ie8Kn0jmpnseNEZkWBK-bqwY1FR6cVIpO7y_hkHivyisguFT6im107xAG5lt7UGDxjj-Nbs-oTOPK_t0"
+import { createUploadLink } from 'apollo-upload-client';
+
+
+const token="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNWM5YjQxODk4OTEyYmE2NGYyZThmMjc2ZWIxY2U0Yjg4MDVjM2Q4NGFkNmJkZTc0NTRkODk1OTQ4MjJkODc5N2I4YTM3ZGQ5ZjdjYjgwMWMiLCJpYXQiOjE2NzIyMjA0MTYuNTY1MTksIm5iZiI6MTY3MjIyMDQxNi41NjUxOTYsImV4cCI6MTcwMzc1NjQxNi40MjI3MjQsInN1YiI6IjMiLCJzY29wZXMiOltdfQ.Ly_GMpmWELOUo4oo8L1SDfgxn9CMtOsShsuS-H2MNxJ5-9C_4JiNqqz3jYFSjlKW0L9rOie6r04pHHmzTE-F54xKhZiN5zT58zci2d8kC5cER7QRF6m_jljHBimM10vTLgrJz7LvuCTHH5_30Qvl5aTv0TwQJQnhu2CT_X4q4gv13QoEPDMcgqPqB4M1AAbQu_aO7OdN_NcV9U3HXtbpwggU5bQU3iKv14Bo39D8wSNmhtPRVuvW-1v-bodAsimea4TfeWvCr3eQHEBQzy-vNQTBJHUxAdKMTTlcOToMXjPYMal8S7vs0gwZrodeiY5W8iFsllnmMVaQ9lga20tXLGa8Yu_JDAP9u2Ehh3Cpk-3sKjKn1B63DPZ-PT7DW4X9f1frrFQk30T3Q31hBP5DzM_fMWQB-F2drleNiXCOZv3yjDDuWhwU7_3YXZDZfW2TT2Wq2L5JDtm_e6Clo8Jb3T_RCmzo3S7ZNfolq213FG1isl_wsEdqutlEpgpR1AkHhdYa1Bs5eW0eku4MWG4K4vSBHhT7BpF1w26zVgxxqDxMb6ncgbJCxRDtXN6vmAF_ZiYed-fvpumRXboF83FKVKtq9poSbv95enx3BzHdjKZzb0gcGTWYtBqfjMH854vy3g_kSfOM4ClOkpGdiomR1MOcwa7lHszRwRQMLyRQ_0k"
 const client = new ApolloClient({
-  uri: 'http://mawared.pro/graphql',
+  link: createUploadLink({
+      uri: 'http://mawared.pro/graphql',
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      }
+  }),
   cache: new InMemoryCache({
     typePolicies: {
       UnconventionalRootQuery: {
@@ -20,9 +28,7 @@ const client = new ApolloClient({
       },
     },
   }),
-  headers: {
-    authorization: token ? `Bearer ${token}` : "",
-  }
+ 
 });
 
 

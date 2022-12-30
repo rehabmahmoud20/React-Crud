@@ -3,6 +3,7 @@ import {  gql } from '@apollo/client';
 
 
 const mutations = {
+    // remove employee
 removeUser :gql`
 mutation removeUserFun( $id: ID!,$password: String!){
     delete_user(id:$id,password:$password) {
@@ -11,6 +12,7 @@ mutation removeUserFun( $id: ID!,$password: String!){
     }
 }
 `,
+    // add employee
 addUser : gql`
 mutation add($input:StoreUserWithUserSalaryConfigInput){
     store_user_with_user_salary_config(input:$input){
@@ -23,9 +25,15 @@ mutation add($input:StoreUserWithUserSalaryConfigInput){
        joining_date
        manager{name}
        copied_managers{name}
+       img_path
+       profile_picture{
+        path
+       }
+    
     }
 }
 `
+    // edit employee
 ,editUser :gql`
 mutation edit($input:ExtraUserInput!){
     update_user(input:$input){
@@ -45,11 +53,3 @@ mutation edit($input:ExtraUserInput!){
 }
 export default mutations;
 
-
-
-// delete_user(
-//     id: ID!
-//     password: String!
-//     replace_by: ID
-//     new_manager_for_replaced_by: ID
-//     ): StatusResponse

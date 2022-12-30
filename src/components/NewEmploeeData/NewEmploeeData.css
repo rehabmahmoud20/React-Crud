@@ -2,17 +2,7 @@
 /* roboto */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 /* ============================================ modal custom style =================================================*/
-body > div:nth-child(3) > div > div {
-  /* margin: auto auto 20px auto !important; */
-  /* margin: auto; */
-}
-/* @media screen and (min-width: 1400px) {
-  body > div:nth-child(3) > div > div {
-    border-radius: 0;
-    max-width: 75% !important;
-    min-width: 75% !important;
-  }
-} */
+
 body > div:nth-child(3) > div > div {
   border-radius: 0;
   max-width: 61% !important;
@@ -29,27 +19,20 @@ body > div:nth-child(3) > div{
 /* =============================================== image container style =========================================*/
 @media screen and (min-width: 1024px) {
   .image-container {
-    /* padding: 50px 51px 32px; */
     margin-right: 11px;
     border-color: #737373;
-    /* margin-bottom: 18px; */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 24%; 
-    /* height: 112px; */
   }
  
 }
 .personal-info-data{
   margin-bottom: 18px;
 }
-/* 257 */
 .image-container p {
-  /* width: 56%; */
-    text-align: center;
-    
-
+  text-align: center;
   line-height: 1.15;
   letter-spacing: 1.73px;
   font-size: 13px;
@@ -76,24 +59,15 @@ body > div:nth-child(3) > div{
 
 /* ================================================== form inputs style ===========================================*/
 .personal-info-input {
-  /* margin: 0 0 15px 13px; */
-  /* margin: auto !important; */
   width: 100%;
-  /* width: 401px; */
-  /* background-color: #737373; */
-  /* width: 400px; */
-
 }
 @media screen and (min-width: 1024px) {
   .personal-info{
     width: 78%;
     height: fit-content;
-  
-  
-  }
- 
-}
 
+  }
+}
 
 input[type='checkbox']:checked{
    background-color: #2764ac;
@@ -109,9 +83,6 @@ input[type='checkbox']:checked{
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
-/* select {
-  margin-bottom: 10px;
-} */
 
 @media screen and (min-width: 1280px) and (max-width: 1535px) {
   .personal-info-input {
@@ -134,7 +105,6 @@ input[type='checkbox']:checked{
 }
 
 
-
 /* form btn */
 .btn {
   width: 85px;
@@ -145,18 +115,7 @@ input[type='checkbox']:checked{
 .office-info-margin{
   margin-bottom: 18px;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: red;
-  opacity: 1; /* Firefox */
-}
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: red;
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: red;
-}
 input,select{
   border-radius: 5px !important;
 }

@@ -4,8 +4,6 @@ import { useDispatch } from "react-redux";
 import { search } from "../../Redux/DataSlice";
 
 const Search = ({handleSearch,value}) => {
-  const [searchVal, setsearchVal] = useState('');
-  const dispatch = useDispatch();
 
   const empSearch = (e) => {
     // setsearchVal(e.target.value)
